@@ -2,7 +2,7 @@
 
         <section class="seccion contenedor">
             <h2>La mejor conferencia  de diseño web en español</h2>
-            <p>
+            <p style="text-align: justify;">
                 Las conferencias, ponentes, categorías serán 100% administrables desde un Panel de Administración donde el administrador del sitio web deberá iniciar sesión para poder administrar la información. Los visitantes podrán comprar sus boletos, inscribirse a las conferencias, elegir un regalo y algunos otros artículos en venta. Los pagos se procesarán por medio de PayPal y una vez que el pago es exitoso se almacenará en la base de datos y la persona estará inscrita a la conferencia.
             </p>
         </section> <!--seccion-->

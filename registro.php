@@ -26,10 +26,11 @@
                             <div class="tabla-precio">
                                 <h3>Pase por día (viernes)</h3>
                                 <p class="numero">$30</p>
-                                <ul>
-                                  <li>Bocadillos Gratis</li>
-                                  <li>Todas las conferencias</li>
-                                  <li>Todos los talleres</li>
+                                <ul class="fa-ul">
+                                    <li><span><i class="fa fa-check"></i></span>Asientos regulares</li>
+                                    <li><span><i class="fa fa-check"></i></span>Bocadillos Gratis</li>
+                                    <li><span><i class="fa fa-check"></i></span>Todos los eventos</li>
+                                    <li class="text-muted"><span><i class="fa fa-times"></i></span>Insignia personalizada</li>
                                 </ul>
                                 <div class="orden">
                                     <label for="pase_dia">Boletos deseados:</label>
@@ -42,10 +43,11 @@
                             <div class="tabla-precio">
                                 <h3>Todos los días</h3>
                                 <p class="numero">$50</p>
-                                <ul>
-                                  <li>Bocadillos Gratis</li>
-                                  <li>Todas las conferencias</li>
-                                  <li>Todos los talleres</li>
+                                <ul class="fa-ul">
+                                    <li><span><i class="fa fa-check"></i></span>Asientos regulares</li>
+                                    <li><span><i class="fa fa-check"></i></span>Bocadillos Gratis</li>
+                                    <li><span><i class="fa fa-check"></i></span>Todos los eventos</li>
+                                    <li><span><i class="fa fa-check"></i></span>Insignia personalizada</li>
                                 </ul>
                                 <div class="orden">
                                     <label for="pase_completo">Boletos deseados:</label>
@@ -59,10 +61,11 @@
                             <div class="tabla-precio">
                                 <h3>Pase por 2 días (viernes y sábado)</h3>
                                 <p class="numero">$45</p>
-                                <ul>
-                                  <li>Bocadillos Gratis</li>
-                                  <li>Todas las conferencias</li>
-                                  <li>Todos los talleres</li>
+                                <ul class="fa-ul">
+                                    <li><span><i class="fa fa-check"></i></span>Asientos regulares</li>
+                                    <li><span><i class="fa fa-check"></i></span>Bocadillos Gratis</li>
+                                    <li><span><i class="fa fa-check"></i></span>Todos los eventos</li>
+                                    <li class="text-muted"><span><i class="fa fa-times"></i></span>Insignia personalizada</li>
                                 </ul>
                                 <div class="orden">
                                     <label for="pase_dosdias">Boletos deseados:</label>

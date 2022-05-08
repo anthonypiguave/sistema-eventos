@@ -627,9 +627,9 @@ div.tabla-precio ul li:before {
   vertical-align: top;
   padding: 0 5px;
   font-size: 20px;
-  color: green;
-  -webkit-font-smoothing: antialiased;
-  content: '\f00c';
+  /*color: green;*/
+  /*-webkit-font-smoothing: antialiased;*/
+  /*content: '\f00c';*/
 
 }
 div.tabla-precio h3 {
@@ -799,6 +799,7 @@ p.copyright {
 .navegacion-principal .activo {
   border-bottom: 2px solid #0083e8;
 }
+
 div.galeria a{
   display: inline-block;
   margin-bottom: 5px;

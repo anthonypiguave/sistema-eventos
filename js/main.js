@@ -198,9 +198,12 @@
 		$('.nombre-sitio').lettering();
 
 		// Agregar clase a Menú
-		$('body.conferencia .navegacion-principal a:contains("Conferencia")').addClass('activo');
-		$('body.calendario .navegacion-principal a:contains("Calendario")').addClass('activo');
-		$('body.invitados .navegacion-principal a:contains("Invitados")').addClass('activo');
+		$('body.conferencia .navbar a:contains("Conferencia")').addClass('active');
+		$('body.calendario .navbar a:contains("Calendario")').addClass('active');
+		$('body.invitados .navbar a:contains("Invitados")').addClass('active');
+        $('body.registro .navbar a:contains("Reservaciones")').addClass('active');
+        $('body.contacto .navbar a:contains("Contact")').addClass('active');
+        $('body.index .navbar a:contains("Inicio")').addClass('active');
 
 		// Menu fijo
 
@@ -275,8 +278,8 @@
         var urlFilename = url.substring(url.lastIndexOf('/')+1);
 
 
-            $('.invitado-info').colorbox({inline: true, width: '50%'});
-            $('.boton_newsletter').colorbox({inline: true, width: '50%'});
+        $('.invitado-info').colorbox({inline: true, width: '50%'});
+        $('.boton_newsletter').colorbox({inline: true, width: '50%'});
 
 	});
 })();

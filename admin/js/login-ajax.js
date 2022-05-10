@@ -10,12 +10,11 @@ $(document).ready(function() {
                 url: "login-admin.php",
                 dataType: 'json',
                 success: function(data) {
-                    console.log(data);
                     var resultado = data;
                     if(resultado.resultado == 'exito') {
                         swal(
                             'Login Exitoso' ,
-                            'El usuario ' + resultado.usuario  + ' inició sesión correctamente',
+                            'El usuario ' + resultado.usuario.toUpperCase()  + ' inició sesión correctamente.',
                             'success'
                         )
                         setTimeout(function(){

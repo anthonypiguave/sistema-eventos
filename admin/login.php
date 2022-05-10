@@ -1,16 +1,19 @@
 <?php
   session_start();
-  /*$cerrar_sesion = $_GET['cerrar_sesion'];
-  if(isset($cerrar_sesion)) {
-    session_destroy();
-  }*/
+//  $cerrar_sesion = $_GET['cerrar_sesion'];
+//  if(isset($cerrar_sesion)) {
+//    session_destroy();
+//  }
   include_once 'templates/header.php' ;
 ?>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" id="login-page">
 <div class="login-box">
 
       <div class="login-logo">
-            <a href="../index.php"><b>XenturionIT</b> Login</a>
+            <a href="../index.php">
+                <b>XenturionIT</b>
+                Login
+            </a>
       </div>
 
       <!-- /.login-logo -->

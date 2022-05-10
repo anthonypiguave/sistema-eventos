@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 
-            $('.select2').select2();       
+            $('.select2').select2();
 
             $('#datepicker').datepicker({
                 autoclose: true
@@ -11,9 +11,9 @@ $(document).ready(function() {
                 showInputs: false
             });
 
-            
-            
-        
+
+
+
             $('#registros').DataTable({
                 'paging'      : true,
                 'lengthChange': false,
@@ -25,13 +25,13 @@ $(document).ready(function() {
                 'language': {
                     paginate: {
                       next: 'Siguiente', // or '→'
-                      previous: 'Anterior' // or '←' 
+                      previous: 'Anterior' // or '←'
                     },
                     info: "Mostrando _START_ a _END_ de _TOTAL_ resultados"
                   }
             });
 
-            
+
 
             $('input#password_repetir').on('input', function() {
                     var password_nuevo = $('input#password').val();
@@ -46,14 +46,13 @@ $(document).ready(function() {
                         $('input#password').parents('.form-group').addClass('has-error').removeClass('has-success');
                     }
             });
-  
+
 
             $('#icono').iconpicker();
-        
-             // LINE 
-             
+
+             // LINE
+
             $.getJSON('servicio-registrados.php', function( data ){
-                console.log(data);
                 var line = new Morris.Line({
                     element: 'grafica-registros',
                     resize: true,
@@ -65,5 +64,5 @@ $(document).ready(function() {
                     hideHover: 'auto'
                 });
             });
-  
+
 });

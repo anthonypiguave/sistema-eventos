@@ -43,7 +43,7 @@ include_once 'templates/header.php'; ?>
                                         $sql = "SELECT evento_id, nombre_evento, clave FROM eventos ORDER BY nombre_evento ASC";
                                         $eventos = $conn->query($sql);
                                         while ($evento = mysqli_fetch_array($eventos)){
-                                            echo '<option value="'.$evento['clave'].'">'.$evento['nombre_evento'].'</option>';
+                                            echo '<option value="'.$evento['evento_id'].'">'.$evento['nombre_evento'].'</option>';
                                         }
                                         ?>
                                     </select>

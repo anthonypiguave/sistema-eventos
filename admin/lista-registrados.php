@@ -34,8 +34,9 @@ include_once 'templates/header.php'; ?>
           <!-- /.box-header -->
           <div class="box-body">
 
-            <a href="nuevo-registrado.php" class="btn btn-success">Añadir Nuevo</a>
-            <table id="registros" class="table table-bordered table-hover">
+            <a href="nuevo-registrado.php" class="btn btn-success" style="margin-right: 800px;">Añadir Nuevo</a>
+              <a class="btn btn-info" download="Mi_Excel" href="export/export_data_registrados.php">Exportar Excel Ahora</a>
+              <table id="registros" class="table table-bordered table-hover">
                 <thead>
                         <tr>
                             <th>Nombre</th>
@@ -84,8 +85,11 @@ include_once 'templates/header.php'; ?>
                                         'etiquetas' => 'Etiquetas'
                                     );
                                     foreach($articulos as $llave => $articulo) {
-                                       if(array_key_exists('cantidad', $articulo)) {
-                                         echo $articulo['cantidad'] . " " .  $arreglo_articulos[$llave] . "<br>";
+                                       if(is_array($articulo) && array_key_exists('cantidad', $articulo)) {
+                                           if ($articulo['cantidad'] >= 1) {
+                                                echo "<b>".$articulo['cantidad']."</b>".  "<b>"." ".$arreglo_articulos[$llave]."</b>" . "<br>";
+//                                                echo  . " " .  $arreglo_articulos[$llave] . "<br>";
+                                       }
                                        } else {
                                         echo $articulo . " " .  $arreglo_articulos[$llave] . "<br>";
                                        }

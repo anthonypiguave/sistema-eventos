@@ -9,7 +9,7 @@
 <body>
 
 <?php
-$conn = new mysqli('localhost', 'root', '', 'proyecto');
+$conn = new mysqli('localhost', 'root', '', 'xenturionit_respaldo');
 
 if($conn->connect_error){
     echo $error->$conn->connect_error;
@@ -60,11 +60,11 @@ $i =1;
             <td><?php echo $registrado['email_registrado'] ; ?></td>
             <td><?php echo $registrado['fecha_registro']; ?></td>
 
-            <td> 
-                <?php 
+            <td>
+                <?php
                     //Decodifica de json a un array. Primero lo covierte a un objeto, si le pasas true lo convierte en un array.
                     $articulos = json_decode($registrado['pases_articulos'], true);
-                    
+
                     //Hacemos un arreglo con las llaves del array decodificado pero que se vea y se lea fácilmente.
                     $arreglo_articulos = array(
                         'un_dia' => 'Pase 1 día',
@@ -85,8 +85,8 @@ $i =1;
                     }
                 ?>
                 </td>
-                <td> 
-                    <?php 
+                <td>
+                    <?php
                         $eventos_resultado = $registrado['talleres_registrados']; //Recibe todos los talleres en json
                         $array_talleres = json_decode($eventos_resultado, true); //Convierte de json a array
 
@@ -95,19 +95,19 @@ $i =1;
                         //Consulta SQL para sacar detalles usando como filtro la clave.
                         $sql_talleres = "SELECT nombre_evento, fecha_evento, hora_evento FROM eventos WHERE clave IN ('$talleres') OR evento_id IN ('$talleres')";
                         $resultado_talleres = $conn->query($sql_talleres);
-                        
+
                         while($eventos = $resultado_talleres->fetch_assoc()){
                             echo $eventos['nombre_evento'] . " " . $eventos['fecha_evento'] . " " . $eventos['hora_evento'] . "<br>";
-                        }                  
-                    ?> 
+                        }
+                    ?>
                 </td>
 
 
             <td><?php echo $registrado['nombre_regalo']; ?></td>
             <td style="text-align:right;">$<?php echo $registrado['total_pagado']; ?></td>
             <td>
-                <?php 
-                $pagado = $registrado['pagado']; 
+                <?php
+                $pagado = $registrado['pagado'];
                 if ($pagado == '1') {
                     echo "SI";
                 }else{
@@ -118,7 +118,7 @@ $i =1;
 
         </tr>
     </tbody>
-    
+
 <?php } ?>
 </table>
 

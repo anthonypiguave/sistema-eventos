@@ -28,6 +28,36 @@ ul.lista-precios li .numero {
     font-weight: bold;
 }
 
+.navbar-nav > .user-menu > .dropdown-menu > li.user-header {
+    height: 155px;
+    padding: 10px;
+    text-align: center;
+}
+
+
+#body{
+    /*border:2px solid red;*/
+}
+#contenedor{
+    width: 100%;
+    margin:0px;
+    display:table;
+    border-spacing:0px;
+}
+#copy{
+    width:50%;
+    /*border: 1px solid black;*/
+    display:table-cell;
+    text-align: left;
+}
+#clock{
+    width:50%;
+    /*border: 1px solid black;*/
+    display:table-cell;
+    text-align: right;
+}
+
+/*LOGIN*/
 .login-page {
     background: url(../../img/hero-bg.jpg);
     width: 100%;
@@ -57,5 +87,48 @@ ul.lista-precios li .numero {
 .login-logo a, .register-logo a {
     color: #ffffff;
 }
-/**/
 
+/*.skin-blue .main-header .navbar {*/
+/*    background-color: #0745a1;;*/
+/*}*/
+
+/*.skin-blue .main-header .logo {*/
+/*    background-color: #0c4aa6;*/
+/*    color: #fff;*/
+/*    border-bottom: 0 solid transparent;*/
+/*}*/
+/*.skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {*/
+/*    background-color: #ffffff;*/
+/*}*/
+/*.skin-blue .sidebar-menu > li.header {*/
+/*    color: #ffffff;*/
+/*    background: #1a2226;*/
+/*}*/
+
+/*.skin-blue .main-header .navbar .sidebar-toggle:hover {*/
+/*    background-color: #0c4aa6;*/
+/*}*/
+
+/*.skin-blue .main-header .logo:hover {*/
+/*    background-color: #0745a1;*/
+/*}*/
+
+/*.skin-blue .sidebar-menu > li:hover > a, .skin-blue .sidebar-menu > li.active > a, .skin-blue .sidebar-menu > li.menu-open > a {*/
+/*    color: #ffffff;*/
+/*}*/
+/*!*.skin-blue .sidebar-menu > li:hover > a, .skin-blue .sidebar-menu > li.active > a, .skin-blue .sidebar-menu > li.menu-open > a {*!*/
+/*!*    color: #1a1818;*!*/
+/*!*}*!*/
+
+/*.skin-blue .sidebar-menu > li:hover > a, .skin-blue .sidebar-menu > li.active > a, .skin-blue .sidebar-menu > li.menu-open > a {*/
+/*    color: #fff;*/
+/*    background: #0c4aa6;*/
+/*}*/
+
+/*.skin-blue .sidebar-menu > li > .treeview-menu {*/
+/*    margin: 0 1px;*/
+/*    background: #0745a1;*/
+/*}*/
+/*.skin-blue .sidebar a {*/
+/*    color: #1a1818;*/
+/*}*/

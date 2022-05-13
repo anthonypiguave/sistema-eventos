@@ -20,6 +20,8 @@
 <script src="js/app.js"></script>
 <script src="js/ajax-php.js"></script>
 <script src="js/login-ajax.js"></script>
+<script src="js/clock.js"></script>
+
 <script>
   $(function () {
     $('input').iCheck({

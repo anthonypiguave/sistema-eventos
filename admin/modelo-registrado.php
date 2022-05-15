@@ -4,27 +4,27 @@ include_once 'funciones/funciones.php';
 $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
 $email = $_POST['email'];
+$pagado = $_POST['pagado'];
 
-// boletos
-$boletos_adquiridos = $_POST['boletos'];
-// Pedido
-$camisas = $_POST['pedido_extra']['camisas']['cantidad'];
-$etiquetas = $_POST['pedido_extra']['etiquetas']['cantidad'];
-
-$pedido = productos_json($boletos_adquiridos, $camisas, $etiquetas);
-$total = $_POST['total_pedido'];
-$regalo = $_POST['regalo'];
-$eventos = $_POST['registro_evento'];
-$registro_eventos = eventos_json($eventos);
 
 $id_registro = $_POST['id_registro'];
-$fecha_registro = $_POST['fecha_registro'];
+//$fecha_registro = $_POST['fecha_registro'];
 
 if($_POST['registro'] == 'nuevo') {
+    // boletos
+    $boletos_adquiridos = $_POST['boletos'];
+    // Pedido
+    $camisas = $_POST['pedido_extra']['camisas']['cantidad'];
+    $etiquetas = $_POST['pedido_extra']['etiquetas']['cantidad'];
+    $pedido = productos_json($boletos_adquiridos, $camisas, $etiquetas);
+    $total = $_POST['total_pedido'];
+    $regalo = $_POST['regalo'];
+    $eventos = $_POST['registro_evento'];
+    $registro_eventos = eventos_json($eventos);
 
     try {
-        $stmt = $conn->prepare("INSERT INTO registrados (nombre_registrado, apellido_registrado, email_registrado, fecha_registro, pases_articulos, talleres_registrados, regalo, total_pagado, pagado) VALUES (?,?,?, NOW(),?,?,?,?,1)");
-        $stmt->bind_param("sssssis", $nombre, $apellido, $email, $pedido, $registro_eventos, $regalo, $total);
+        $stmt = $conn->prepare("INSERT INTO registrados (nombre_registrado, apellido_registrado, email_registrado, fecha_registro, pases_articulos, talleres_registrados, regalo, total_pagado, pagado, forma_pago) VALUES (?,?,?, NOW(),?,?,?,?,1)");
+        $stmt->bind_param("sssssiss", $nombre, $apellido, $email, $pedido, $registro_eventos, $regalo, $total);
         $stmt->execute();
         if($stmt->affected_rows) {
             $respuesta = array(
@@ -52,8 +52,8 @@ if($_POST['registro'] == 'nuevo') {
 
 if($_POST['registro'] == 'actualizar') {
     try {
-        $stmt = $conn->prepare("UPDATE registrados SET nombre_registrado = ?,  apellido_registrado = ?, email_registrado = ?, fecha_registro = ?, pases_articulos = ?, talleres_registrados = ?, regalo = ?, total_pagado = ?, pagado = 1   WHERE ID_Registrado = ?  ");
-        $stmt->bind_param("ssssssisi", $nombre, $apellido, $email, $fecha_registro, $pedido, $registro_eventos, $regalo, $total, $id_registro);
+        $stmt = $conn->prepare("UPDATE registrados SET nombre_registrado = ?, apellido_registrado = ?, pagado = ? , email_registrado = ? WHERE ID_Registrado = ?  ");
+        $stmt->bind_param("ssisi", $nombre, $apellido, $pagado, $email, $id_registro);
         $stmt->execute();
         $resultado = $stmt->get_result();
         if($stmt->affected_rows) {

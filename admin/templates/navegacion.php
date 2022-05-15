@@ -71,6 +71,7 @@
                     <li><a href="nuevo-invitado.php"><i class="fa fa-plus" aria-hidden="true"></i> Agregar</a></li>
                 </ul>
             </li>
+          <?php if($_SESSION['nivel'] == 1): ?>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-address-card"></i> <span>Registrados </span>
@@ -80,9 +81,10 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="lista-registrados.php"><i class="fa fa-list" aria-hidden="true"></i> Ver Todos</a></li>
-                    <li><a href="nuevo-registrado.php"><i class="fa fa-plus" aria-hidden="true"></i> Agregar</a></li>
+<!--                    <li><a href="nuevo-registrado.php"><i class="fa fa-plus" aria-hidden="true"></i> Agregar</a></li>-->
                 </ul>
             </li>
+          <?php endif; ?>
 
             <?php if($_SESSION['nivel'] == 1): ?>
                 <li class="treeview">
@@ -108,6 +110,7 @@
                     </ul>
                 </li>
             <?php endif; ?>
+          <?php if($_SESSION['nivel'] == 1): ?>
               <li class="treeview">
                   <a href="#">
                       <i class="fa fa-file"></i>
@@ -117,6 +120,7 @@
                       <li><a href="generate-report.php"><i class="fa fa-plus-circle"></i> Generar</a></li>
                   </ul>
               </li>
+          <?php endif; ?>
 
 
 

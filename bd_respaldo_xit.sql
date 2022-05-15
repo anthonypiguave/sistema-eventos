@@ -2,7 +2,7 @@
 SQLyog Ultimate v11.11 (64 bit)
 MySQL - 5.5.5-10.4.14-MariaDB : Database - xenturionit_respaldo
 *********************************************************************
-*/
+*/
 
 /*!40101 SET NAMES utf8 */;
 
@@ -21,32 +21,32 @@ USE `xenturionit_respaldo`;
 DROP TABLE IF EXISTS `admins`;
 
 CREATE TABLE `admins` (
-  `ID_admin` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre_admin` varchar(75) DEFAULT NULL,
-  `apellido_admin` varchar(75) DEFAULT NULL,
-  `usuario` varchar(50) NOT NULL,
-  `hash_pass` varchar(60) NOT NULL,
-  `nivel` int(1) NOT NULL,
-  `creado` datetime DEFAULT NULL,
-  `actualizado` datetime DEFAULT NULL,
-  PRIMARY KEY (`ID_admin`),
-  UNIQUE KEY `usuario` (`usuario`)
+                          `ID_admin` int(11) NOT NULL AUTO_INCREMENT,
+                          `nombre_admin` varchar(75) DEFAULT NULL,
+                          `apellido_admin` varchar(75) DEFAULT NULL,
+                          `usuario` varchar(50) NOT NULL,
+                          `hash_pass` varchar(60) NOT NULL,
+                          `nivel` int(1) NOT NULL,
+                          `creado` datetime DEFAULT NULL,
+                          `actualizado` datetime DEFAULT NULL,
+                          PRIMARY KEY (`ID_admin`),
+                          UNIQUE KEY `usuario` (`usuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
 
 /*Data for the table `admins` */
 
-insert  into `admins`(`ID_admin`,`nombre_admin`,`apellido_admin`,`usuario`,`hash_pass`,`nivel`,`creado`,`actualizado`) values (1,'admin','admin','admin','$2y$12$lHcrW0zESdGLopYmrO4eA.b4BG.bEPRu0Q81UQb449WcwPizJoYIG',1,NULL,'2022-04-22 23:04:31'),(2,'Anthony','Piguave','anthony','$2y$12$JTF5VEf.wPmmPZ3KDyZ4teBN09VB.ym1nKpvbV/g8bnazVSrMOlLO',1,'2022-04-25 20:39:16',NULL);
+insert  into `admins`(`ID_admin`,`nombre_admin`,`apellido_admin`,`usuario`,`hash_pass`,`nivel`,`creado`,`actualizado`) values (1,'admin','admin','admin','$2y$12$lHcrW0zESdGLopYmrO4eA.b4BG.bEPRu0Q81UQb449WcwPizJoYIG',1,NULL,'2022-04-22 23:04:31'),(2,'Anthony','Piguave','anthony','$2y$12$JTF5VEf.wPmmPZ3KDyZ4teBN09VB.ym1nKpvbV/g8bnazVSrMOlLO',0,'2022-04-25 20:39:16',NULL);
 
 /*Table structure for table `categoria_evento` */
 
 DROP TABLE IF EXISTS `categoria_evento`;
 
 CREATE TABLE `categoria_evento` (
-  `id_categoria` tinyint(10) NOT NULL AUTO_INCREMENT,
-  `cat_evento` varchar(50) NOT NULL,
-  `icono` varchar(15) NOT NULL,
-  `actualizado` datetime NOT NULL,
-  PRIMARY KEY (`id_categoria`)
+                                    `id_categoria` tinyint(10) NOT NULL AUTO_INCREMENT,
+                                    `cat_evento` varchar(50) NOT NULL,
+                                    `icono` varchar(15) NOT NULL,
+                                    `actualizado` datetime NOT NULL,
+                                    PRIMARY KEY (`id_categoria`)
 ) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 
 /*Data for the table `categoria_evento` */
@@ -58,16 +58,16 @@ insert  into `categoria_evento`(`id_categoria`,`cat_evento`,`icono`,`actualizado
 DROP TABLE IF EXISTS `cuentas_bancarias`;
 
 CREATE TABLE `cuentas_bancarias` (
-  `id` tinyint(4) NOT NULL AUTO_INCREMENT,
-  `nombre_banco` varchar(50) DEFAULT NULL,
-  `tipo_cuenta` varchar(15) DEFAULT NULL,
-  `nro_cuenta` varchar(15) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `ced_ruc` varchar(14) DEFAULT NULL,
-  `descripcion` varchar(100) DEFAULT NULL,
-  `creado` datetime DEFAULT NULL,
-  `actualizado` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+                                     `id` tinyint(4) NOT NULL AUTO_INCREMENT,
+                                     `nombre_banco` varchar(50) DEFAULT NULL,
+                                     `tipo_cuenta` varchar(15) DEFAULT NULL,
+                                     `nro_cuenta` varchar(15) DEFAULT NULL,
+                                     `email` varchar(50) DEFAULT NULL,
+                                     `ced_ruc` varchar(14) DEFAULT NULL,
+                                     `descripcion` varchar(100) DEFAULT NULL,
+                                     `creado` datetime DEFAULT NULL,
+                                     `actualizado` datetime DEFAULT NULL,
+                                     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 /*Data for the table `cuentas_bancarias` */
@@ -79,21 +79,21 @@ insert  into `cuentas_bancarias`(`id`,`nombre_banco`,`tipo_cuenta`,`nro_cuenta`,
 DROP TABLE IF EXISTS `eventos`;
 
 CREATE TABLE `eventos` (
-  `evento_id` tinyint(10) NOT NULL AUTO_INCREMENT,
-  `nombre_evento` varchar(60) NOT NULL,
-  `fecha_evento` date NOT NULL,
-  `hora_evento` varchar(10) NOT NULL,
-  `cupo` int(11) DEFAULT NULL,
-  `id_cat_evento` tinyint(10) NOT NULL,
-  `id_inv` tinyint(4) NOT NULL,
-  `clave` varchar(10) NOT NULL,
-  `fecha_creado` datetime DEFAULT NULL,
-  `fecha_editado` date DEFAULT NULL,
-  PRIMARY KEY (`evento_id`),
-  KEY `id_cat_evento` (`id_cat_evento`),
-  KEY `id_inv` (`id_inv`),
-  CONSTRAINT `eventos_ibfk_1` FOREIGN KEY (`id_cat_evento`) REFERENCES `categoria_evento` (`id_categoria`),
-  CONSTRAINT `eventos_ibfk_2` FOREIGN KEY (`id_inv`) REFERENCES `invitados` (`invitado_id`)
+                           `evento_id` tinyint(10) NOT NULL AUTO_INCREMENT,
+                           `nombre_evento` varchar(60) NOT NULL,
+                           `fecha_evento` date NOT NULL,
+                           `hora_evento` varchar(10) NOT NULL,
+                           `cupo` int(11) DEFAULT NULL,
+                           `id_cat_evento` tinyint(10) NOT NULL,
+                           `id_inv` tinyint(4) NOT NULL,
+                           `clave` varchar(10) NOT NULL,
+                           `fecha_creado` datetime DEFAULT NULL,
+                           `fecha_editado` date DEFAULT NULL,
+                           PRIMARY KEY (`evento_id`),
+                           KEY `id_cat_evento` (`id_cat_evento`),
+                           KEY `id_inv` (`id_inv`),
+                           CONSTRAINT `eventos_ibfk_1` FOREIGN KEY (`id_cat_evento`) REFERENCES `categoria_evento` (`id_categoria`),
+                           CONSTRAINT `eventos_ibfk_2` FOREIGN KEY (`id_inv`) REFERENCES `invitados` (`invitado_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8;
 
 /*Data for the table `eventos` */
@@ -105,17 +105,17 @@ insert  into `eventos`(`evento_id`,`nombre_evento`,`fecha_evento`,`hora_evento`,
 DROP TABLE IF EXISTS `invitados`;
 
 CREATE TABLE `invitados` (
-  `invitado_id` tinyint(4) NOT NULL AUTO_INCREMENT,
-  `nombre_invitado` varchar(30) NOT NULL,
-  `apellido_invitado` varchar(30) NOT NULL,
-  `descripcion` text NOT NULL,
-  `url_imagen` varchar(50) NOT NULL,
-  `editado` datetime NOT NULL,
-  `url_facebook` varchar(200) DEFAULT NULL,
-  `url_twitter` varchar(200) DEFAULT NULL,
-  `url_instagram` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`invitado_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+                             `invitado_id` tinyint(4) NOT NULL AUTO_INCREMENT,
+                             `nombre_invitado` varchar(30) NOT NULL,
+                             `apellido_invitado` varchar(30) NOT NULL,
+                             `descripcion` text NOT NULL,
+                             `url_imagen` varchar(50) NOT NULL,
+                             `editado` datetime NOT NULL,
+                             `url_facebook` varchar(200) DEFAULT NULL,
+                             `url_twitter` varchar(200) DEFAULT NULL,
+                             `url_instagram` varchar(200) DEFAULT NULL,
+                             PRIMARY KEY (`invitado_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
 /*Data for the table `invitados` */
 
@@ -126,9 +126,9 @@ insert  into `invitados`(`invitado_id`,`nombre_invitado`,`apellido_invitado`,`de
 DROP TABLE IF EXISTS `regalos`;
 
 CREATE TABLE `regalos` (
-  `ID_regalo` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre_regalo` varchar(50) NOT NULL,
-  PRIMARY KEY (`ID_regalo`)
+                           `ID_regalo` int(11) NOT NULL AUTO_INCREMENT,
+                           `nombre_regalo` varchar(50) NOT NULL,
+                           PRIMARY KEY (`ID_regalo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `regalos` */
@@ -140,24 +140,25 @@ insert  into `regalos`(`ID_regalo`,`nombre_regalo`) values (1,'Pulsera'),(2,'Eti
 DROP TABLE IF EXISTS `registrados`;
 
 CREATE TABLE `registrados` (
-  `ID_Registrado` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `nombre_registrado` varchar(50) NOT NULL,
-  `apellido_registrado` varchar(50) NOT NULL,
-  `email_registrado` varchar(100) NOT NULL,
-  `fecha_registro` datetime NOT NULL,
-  `pases_articulos` longtext NOT NULL,
-  `talleres_registrados` longtext NOT NULL,
-  `regalo` int(11) NOT NULL,
-  `total_pagado` varchar(50) NOT NULL,
-  `pagado` int(1) NOT NULL,
-  PRIMARY KEY (`ID_Registrado`),
-  KEY `regalo` (`regalo`),
-  CONSTRAINT `registrados_ibfk_1` FOREIGN KEY (`regalo`) REFERENCES `regalos` (`ID_regalo`)
-) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8;
+                               `ID_Registrado` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+                               `nombre_registrado` varchar(50) NOT NULL,
+                               `apellido_registrado` varchar(50) NOT NULL,
+                               `email_registrado` varchar(100) NOT NULL,
+                               `fecha_registro` datetime NOT NULL,
+                               `pases_articulos` longtext NOT NULL,
+                               `talleres_registrados` longtext NOT NULL,
+                               `regalo` int(11) NOT NULL,
+                               `total_pagado` varchar(50) NOT NULL,
+                               `pagado` int(1) NOT NULL,
+                               `forma_pago` varchar(25) DEFAULT NULL,
+                               PRIMARY KEY (`ID_Registrado`),
+                               KEY `regalo` (`regalo`),
+                               CONSTRAINT `registrados_ibfk_1` FOREIGN KEY (`regalo`) REFERENCES `regalos` (`ID_regalo`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 /*Data for the table `registrados` */
 
-insert  into `registrados`(`ID_Registrado`,`nombre_registrado`,`apellido_registrado`,`email_registrado`,`fecha_registro`,`pases_articulos`,`talleres_registrados`,`regalo`,`total_pagado`,`pagado`) values (34,'juan','vv','correo@correo.com','2018-10-22 02:48:24','{\"un_dia\":{\"cantidad\":\"1\"},\"pase_completo\":{\"cantidad\":\"\"},\"pase_2dias\":{\"cantidad\":\"\"}}','{\"eventos\":[\"7\"]}',2,'30',1),(35,'juan','de la ','correo@correo.com','2018-10-22 02:57:36','{\"un_dia\":{\"cantidad\":\"1\"},\"pase_completo\":{\"cantidad\":\"\"},\"pase_2dias\":{\"cantidad\":\"\"}}','{\"eventos\":[\"8\"]}',2,'30',1),(38,'jua','c','correo@correo.com','2018-10-22 03:02:55','{\"un_dia\":{\"cantidad\":\"1\"},\"pase_completo\":{\"cantidad\":\"\"},\"pase_2dias\":{\"cantidad\":\"\"}}','{\"eventos\":[\"7\"]}',2,'30',1),(39,'Juan Pablo','pablo','correo@correo.com','2018-10-22 03:04:08','{\"un_dia\":{\"cantidad\":\"1\"},\"pase_completo\":{\"cantidad\":\"\"},\"pase_2dias\":{\"cantidad\":\"\"}}','{\"eventos\":[\"8\"]}',1,'30',1),(40,'juan','co','correo@correo.com','2018-10-22 03:07:14','{\"un_dia\":{\"cantidad\":\"1\"},\"pase_completo\":{\"cantidad\":\"\"},\"pase_2dias\":{\"cantidad\":\"\"}}','{\"eventos\":[\"7\"]}',2,'30',0),(82,'aaaaa','aaaa','aaaa@email.com','2022-04-25 06:06:24','{\"un_dia\":{\"cantidad\":\"0\"},\"pase_completo\":{\"cantidad\":\"0\"},\"pase_2dias\":{\"cantidad\":\"1\"}}','{\"eventos\":[\"9\",\"14\"]}',1,'45',1),(83,'aaaaa','aaaa','aaaa@email.com','2022-04-25 06:17:46','{\"un_dia\":{\"cantidad\":\"1\"},\"pase_completo\":{\"cantidad\":\"0\"},\"pase_2dias\":{\"cantidad\":\"0\"}}','{\"eventos\":[\"10\"]}',1,'30',0),(85,'pruebacompra@gmail.com','pruebacompra@gmail.com','pruebacompra@gmail.com','2022-04-27 06:22:26','{\"un_dia\":{\"cantidad\":\"1\"},\"pase_completo\":{\"cantidad\":\"0\"},\"pase_2dias\":{\"cantidad\":\"0\"},\"camisas\":1,\"etiquetas\":1}','{\"eventos\":[\"10\"]}',2,'41.3',0),(86,'pruebacompra@gmail.com','pruebacompra@gmail.com','pruebacompra@gmail.com','2022-04-27 06:22:54','{\"un_dia\":{\"cantidad\":\"1\"},\"pase_completo\":{\"cantidad\":\"0\"},\"pase_2dias\":{\"cantidad\":\"0\"},\"camisas\":1,\"etiquetas\":1}','{\"eventos\":[\"10\"]}',2,'41.3',1),(87,'prueba','prueba','prueba@gmail.com','2022-04-27 06:25:49','{\"un_dia\":{\"cantidad\":\"1\"},\"pase_completo\":{\"cantidad\":\"0\"},\"pase_2dias\":{\"cantidad\":\"0\"},\"camisas\":1,\"etiquetas\":1}','{\"eventos\":[\"10\"]}',2,'41.3',1);
+insert  into `registrados`(`ID_Registrado`,`nombre_registrado`,`apellido_registrado`,`email_registrado`,`fecha_registro`,`pases_articulos`,`talleres_registrados`,`regalo`,`total_pagado`,`pagado`,`forma_pago`) values (1,'NOMBRE','APELLIDO','prueba@gmail.com','2022-04-01 04:15:44','{\"un_dia\":{\"cantidad\":\"1\"},\"pase_completo\":{\"cantidad\":\"0\"},\"pase_2dias\":{\"cantidad\":\"0\"},\"camisas\":1,\"etiquetas\":1}','{\"eventos\":[\"10\"]}',2,'41.3',1,'Paypal'),(2,'AXEL','GALARZA','axel@gmail.com','2022-04-01 04:20:39','{\"un_dia\":{\"cantidad\":\"\"},\"pase_completo\":{\"cantidad\":\"1\"},\"pase_2dias\":{\"cantidad\":\"\"},\"camisas\":1,\"etiquetas\":2}','{\"eventos\":[\"8\",\"17\",\"12\",\"22\",\"24\"]}',1,'63.3',1,'Paypal'),(3,'RAUL','TORRES','pruebacompra@gmail.com','2022-05-05 04:21:57','{\"un_dia\":{\"cantidad\":\"2\"},\"pase_completo\":{\"cantidad\":\"\"},\"pase_2dias\":{\"cantidad\":\"1\"},\"camisas\":1,\"etiquetas\":2}','{\"eventos\":[\"10\",\"17\"]}',2,'118.3',0,'Paypal'),(4,'ANDRES','ANDRADE','andres@gmail.com','2022-05-10 04:22:37','{\"un_dia\":{\"cantidad\":\"2\"},\"pase_completo\":{\"cantidad\":\"\"},\"pase_2dias\":{\"cantidad\":\"1\"},\"camisas\":1,\"etiquetas\":2}','{\"eventos\":[\"10\",\"17\"]}',2,'118.3',1,'Paypal'),(5,'MARIA','TORRES','maria@gmail.com','2022-05-14 04:25:31','{\"un_dia\":{\"cantidad\":\"2\"},\"pase_completo\":{\"cantidad\":\"\"},\"pase_2dias\":{\"cantidad\":\"1\"},\"camisas\":1,\"etiquetas\":1}','{\"eventos\":[\"4\",\"12\"]}',2,'116.3',1,'Paypal'),(8,'CARLOS','VILLALTA','testventa@gmail.com','2022-05-14 19:03:28','{\"un_dia\":{\"cantidad\":\"1\"},\"pase_completo\":{\"cantidad\":\"1\"},\"pase_2dias\":{\"cantidad\":\"1\"},\"camisas\":1,\"etiquetas\":1}','{\"eventos\":[\"8\",\"17\",\"30\"]}',1,'136.3',1,'Paypal'),(9,'NICOLE','FERNANDES','nicolefernandes@gmail.com','2022-05-15 02:54:02','{\"un_dia\":{\"cantidad\":\"1\"},\"pase_completo\":{\"cantidad\":\"\"},\"pase_2dias\":{\"cantidad\":\"\"},\"camisas\":1,\"etiquetas\":1}','{\"eventos\":[\"10\",\"8\"]}',2,'41.3',1,'Paypal'),(12,'CHRISTIAN','ALVARADO','pruebacompra@gmail.com','2022-05-15 05:16:14','{\"un_dia\":{\"cantidad\":\"1\"},\"pase_completo\":{\"cantidad\":\"\"},\"pase_2dias\":{\"cantidad\":\"\"},\"camisas\":1}','{\"eventos\":[\"10\"]}',3,'39.3',1,'Paypal'),(13,'LUIS','LUIS','pruebacompra@gmail.com','2022-05-15 05:17:37','{\"un_dia\":{\"cantidad\":\"\"},\"pase_completo\":{\"cantidad\":\"\"},\"pase_2dias\":{\"cantidad\":\"1\"},\"camisas\":10,\"etiquetas\":10}','{\"eventos\":[\"79\",\"12\"]}',1,'158',0,'Transferencia o Depósito');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -15,7 +15,46 @@ use PayPal\Api\Payment;
 
 $formapago = $_REQUEST['forma'];
 if ($formapago == 'transfer') {
-    header("Location: datos.php");
+    if(isset($_POST['submit'])):
+        $nombre = $_POST['nombre'];
+        $apellido = $_POST['apellido'];
+        $email = $_POST['email'];
+        $regalo = $_POST['regalo'];
+        $total = $_POST['total_pedido'];
+        $fecha = date('Y-m-d H:i:s');
+        // Pedidos
+        $boletos = $_POST['boletos'];
+        $numero_boletos = $boletos;
+
+        $pedidoExtra = $_POST['pedido_extra'];
+        $camisas = $_POST['pedido_extra']['camisas']['cantidad'];
+        $precioCamisa = $_POST['pedido_extra']['camisas']['precio'];
+        $etiquetas = $_POST['pedido_extra']['etiquetas']['cantidad'];
+        $precioEtiquetas = $_POST['pedido_extra']['etiquetas']['precio'];
+        include_once 'includes/funciones/funciones.php';
+        $pedido = productos_json($boletos, $camisas, $etiquetas);
+        $eventos = $_POST['registro'];
+        $registro = eventos_json($eventos);
+
+        if ($formapago == 'transfer'){
+            $fpago = 'Transferencia o Depósito';
+        }elseif($formapago == 'paypal'){
+            $fpago = 'Paypal';
+        }
+
+        try {
+            require_once('includes/funciones/bd_conexion.php');
+            $stmt = $conn->prepare("INSERT INTO registrados (nombre_registrado, apellido_registrado, email_registrado, fecha_registro, pases_articulos, talleres_registrados, regalo, total_pagado, forma_pago) VALUES (?,?,?,?,?,?,?,?,?)");
+            $stmt->bind_param("ssssssiss", $nombre, $apellido, $email, $fecha, $pedido, $registro, $regalo, $total, $fpago);
+            $stmt->execute();
+            $ID_registro = $stmt->insert_id;
+            $stmt->close();
+            $conn->close();
+            header("Location: datos.php");
+        } catch (Exception $e) {
+            $error = $e->getMessage();
+        }
+    endif;
 } else {
 
     require 'includes/paypal.php';
@@ -41,10 +80,17 @@ if ($formapago == 'transfer') {
         $pedido = productos_json($boletos, $camisas, $etiquetas);
         $eventos = $_POST['registro'];
         $registro = eventos_json($eventos);
+
+        if ($formapago == 'transfer'){
+            $fpago = 'Transferencia o Depósito';
+        }elseif($formapago == 'paypal'){
+            $fpago = 'Paypal';
+        }
+
         try {
             require_once('includes/funciones/bd_conexion.php');
-            $stmt = $conn->prepare("INSERT INTO registrados (nombre_registrado, apellido_registrado, email_registrado, fecha_registro, pases_articulos, talleres_registrados, regalo, total_pagado) VALUES (?,?,?,?,?,?,?,?)");
-            $stmt->bind_param("ssssssis", $nombre, $apellido, $email, $fecha, $pedido, $registro, $regalo, $total);
+            $stmt = $conn->prepare("INSERT INTO registrados (nombre_registrado, apellido_registrado, email_registrado, fecha_registro, pases_articulos, talleres_registrados, regalo, total_pagado, forma_pago) VALUES (?,?,?,?,?,?,?,?,?)");
+            $stmt->bind_param("ssssssiss", $nombre, $apellido, $email, $fecha, $pedido, $registro, $regalo, $total, $fpago);
             $stmt->execute();
             $ID_registro = $stmt->insert_id;
             $stmt->close();

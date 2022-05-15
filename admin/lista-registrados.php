@@ -34,7 +34,7 @@ include_once 'templates/header.php'; ?>
           <!-- /.box-header -->
           <div class="box-body">
 
-            <a href="nuevo-registrado.php" class="btn btn-success" style="margin-right: 800px;">Añadir Nuevo</a>
+<!--            <a href="nuevo-registrado.php" class="btn btn-success" style="margin-right: 800px;">Añadir Nuevo</a>-->
               <a class="btn btn-info" download="Mi_Excel" href="export/export_data_registrados.php">Exportar Excel Ahora</a>
               <table id="registros" class="table table-bordered table-hover">
                 <thead>
@@ -65,10 +65,16 @@ include_once 'templates/header.php'; ?>
                             <td>
                                 <?php echo $registrado['nombre_registrado'] . " " . $registrado['apellido_registrado'];
                                       $pagado = $registrado['pagado'];
+                                      $forma = $registrado['forma_pago'];
                                       if($pagado):
                                            echo '<span class="badge bg-green">Pagado</span>';
                                       else:
                                             echo '<span class="badge bg-red">No Pagado</span>';
+                                      endif;
+                                      if($forma == 'Paypal'):
+                                        echo '<span class="badge bg-blue">Paypal</span>';
+                                      else:
+                                        echo '<span class="badge bg-dark">Transferencia o Depósito</span>';
                                       endif;
                                 ?>
                             </td>

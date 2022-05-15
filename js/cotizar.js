@@ -125,27 +125,21 @@
 					boletos2Dias = parseInt(pase_dosdias.value, 10) || 0,
 					boletoCompleto = parseInt(pase_completo.value, 10) || 0;
 
-				console.log(boletoCompleto);
 
 				var diasElegidos = [];
 
 				if (boletosDia > 0) {
 					diasElegidos.push('Friday');
-					console.log(diasElegidos);
 				}
 				if (boletos2Dias > 0) {
 					diasElegidos.push('Friday', 'Saturday');
-					console.log(diasElegidos);
 				}
 				if (boletoCompleto > 0) {
 					diasElegidos.push('Friday', 'Saturday', 'Sunday');
-					console.log(diasElegidos);
 				}
-				console.log(diasElegidos.length);
-
 				// muestra los seleccionados
-				for (var i = 0; i < diasElegidos.length; i++) {
-					document.getElementById(diasElegidos[i]).style.display = 'block';
+				for (var e = 0; e < diasElegidos.length; e++) {
+					document.getElementById(diasElegidos[e]).style.display = 'block';
 				}
 
 				// los oculta si vuelven a 0

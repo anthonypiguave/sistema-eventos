@@ -45,7 +45,7 @@
               $stmt->close();
               $conn->close();
 
-              header("refresh:5;url=index.php");
+//              header("refresh:5;url=index.php");
         } else {
             echo "<div class='resultado error'>";
             echo "El pago no se realizo";

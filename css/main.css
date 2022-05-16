@@ -55,13 +55,14 @@ hr {
 
 audio,
 canvas,
-iframe,
 img,
 svg,
 video {
     vertical-align: middle;
 }
-
+iframe{
+    vertical-align: top;
+}
 /*
  * Remove default fieldset styles.
  */
@@ -644,9 +645,15 @@ div.tabla-precio p.numero {
 
 /**+ MAPA   **/
 
+/*div.mapa {*/
+/*  height: 420px;*/
+/*  background-color: green;*/
+/*}*/
+
 div.mapa {
-  height: 420px;
-  background-color: green;
+    height: 380px;
+    border-radius: 20px;
+    width: 50%;
 }
 /**+ Testimoniales   **/
 div.testimoniales {
@@ -660,6 +667,42 @@ div.testimonial {
     float: left;
     width: 33.3%;
   }
+}
+
+
+#contenedor_principal{
+    /*border:2px solid red;*/
+    height: 400px;
+    background-color: #f6f7fd;
+}
+#contenedor{
+    width: 100%;
+    margin:0px;
+    display:table;
+    border-spacing:0px;
+}
+#divmap{
+    width:50%;
+    /*border: 1px solid black;*/
+    display:table-cell;
+    text-align: left;
+    height: 390px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+#divcontact{
+    width:50%;
+    /*border: 1px solid black;*/
+    display:table-cell;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 10px;
+
+}
+@media (max-width: 460px) {
+    #divcontact {
+        width: 100%;
+    }
 }
 blockquote {
   background-color: #ffffff;

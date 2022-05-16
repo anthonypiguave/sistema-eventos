@@ -266,8 +266,9 @@
 		}
 
 		//Cuenta Regresiva
+        var contador = document.getElementById('contador').innerText;
 
-		$('.cuenta-regresiva').countdown('2022/05/15 00:00:00', function(event) {
+		$('.cuenta-regresiva').countdown(contador + ' 00:00:00', function(event) {
 			$('#dias').html(event.strftime('%D'));
 			$('#horas').html(event.strftime('%H'));
 			$('#minutos').html(event.strftime('%M'));

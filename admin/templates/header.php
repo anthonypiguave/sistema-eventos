@@ -3,7 +3,7 @@
 <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>XenturionIT | Administración</title>
+      <title>Xenturion | Administración</title>
       <link rel="shortcut icon" type="image/x-icon" href="../favicon.png"/>
 
     <!-- Tell the browser to be responsive to screen width -->

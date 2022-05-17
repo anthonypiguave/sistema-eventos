@@ -30,7 +30,7 @@ if (isset($_POST['estado'])){
 
 if($_POST['registro'] == 'nuevo') {
     try {
-        $stmt = $conn->prepare("INSERT INTO eventos (nombre_evento, fecha_evento, hora_evento, cupo, id_cat_evento, id_inv, fecha_creado, estado) VALUES (?,?,?,?,?,?,now(), 1)");
+        $stmt = $conn->prepare("INSERT INTO eventos (nombre_evento, fecha_evento, hora_evento, cupo, id_cat_evento, id_inv, fecha_creado, estado_evento) VALUES (?,?,?,?,?,?,now(), 1)");
         $stmt->bind_param("sssiii", $titulo, $fecha_formato, $hora, $cupo, $categoria_id, $invitado_id);
         $stmt->execute();
         if($stmt->affected_rows) {
@@ -60,7 +60,7 @@ if($_POST['registro'] == 'nuevo') {
 if($_POST['registro'] == 'actualizar') {
 
     try {
-        $stmt = $conn->prepare("UPDATE eventos SET nombre_evento = ?,  fecha_evento = ?, hora_evento = ? , cupo = ?, id_cat_evento = ?, id_inv = ?, fecha_editado = now(), estado = ?  WHERE evento_id = ?  ");
+        $stmt = $conn->prepare("UPDATE eventos SET nombre_evento = ?,  fecha_evento = ?, hora_evento = ? , cupo = ?, id_cat_evento = ?, id_inv = ?, fecha_editado = now(), estado_evento = ?  WHERE evento_id = ?  ");
         $stmt->bind_param("sssiiiii", $titulo, $fecha_formato, $hora, $cupo,  $categoria_id, $invitado_id, $estado, $id_registro);
         $stmt->execute();
         if($stmt->affected_rows) {

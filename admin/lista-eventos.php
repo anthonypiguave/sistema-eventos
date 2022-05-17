@@ -50,7 +50,7 @@ include_once 'templates/header.php'; ?>
                 <?php
                   try {
 
-                    $sql = "SELECT `evento_id`, `nombre_evento`, `fecha_evento`, `hora_evento` , `cat_evento`, `nombre_invitado`, `apellido_invitado`, `estado`";
+                    $sql = "SELECT `evento_id`, `nombre_evento`, `fecha_evento`, `hora_evento` , `cat_evento`, `nombre_invitado`, `apellido_invitado`, `estado_evento`";
                     $sql .= "FROM `eventos` ";
                     $sql .= "INNER JOIN `categoria_evento` ";
                     $sql .= "ON eventos.id_cat_evento=categoria_evento.id_categoria ";
@@ -66,7 +66,7 @@ include_once 'templates/header.php'; ?>
                       <tr>
                               <td>
                                   <?php echo $eventos['nombre_evento'];
-                                  $estado = $eventos['estado'];
+                                  $estado = $eventos['estado_evento'];
                                   if($estado == 1):
                                     echo ' '.'<span class="badge bg-green">Activo</span>';
                                   else:

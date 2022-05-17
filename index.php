@@ -336,13 +336,12 @@
     if($conn->connect_error){
         echo $error->$conn->connect_error;
     }
-    $sql = "SELECT * FROM eventos ORDER BY CONCAT(fecha_evento, ' ', hora_evento) DESC LIMIT 1";
+    $sql = "SELECT * FROM eventos  WHERE estado = 1 ORDER BY CONCAT(fecha_evento, ' ', hora_evento) ASC LIMIT 1";
 
     $result = $conn->query($sql);
     while ($row = $result->fetch_assoc()) {?>
         <h3 id="contador" style="display: none"><?php  echo str_replace("-","/", $row['fecha_evento']); ?></h3>
     <?php }?>
-
 
 </section>
 <?php include_once 'includes/templates/footer.php'; ?>

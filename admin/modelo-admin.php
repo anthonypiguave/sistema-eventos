@@ -65,7 +65,7 @@ if($_POST['registro'] == 'actualizar') {
 
         } else {
             $hash_password = password_hash($nuevo_password, PASSWORD_BCRYPT, $opciones);
-            $stmt = $conn->prepare("UPDATE admins SET usuario = ?,  hash_pass = ? WHERE ID_admin = ?  ");
+            $stmt = $conn->prepare("UPDATE admins SET usuario = ?,  hash_pass = ?, actualizado = NOW() WHERE ID_admin = ?  ");
             $stmt->bind_param("ssi", $usuario, $hash_password, $id_registro);
 
         }
@@ -99,7 +99,7 @@ if($_POST['registro'] == 'eliminar'){
     $id_borrar = $_POST['id'];
 
     try {
-        $stmt = $conn->prepare("DELETE FROM admins WHERE ID_admin = ? ");
+        $stmt = $conn->prepare("UPDATE admins SET estado = 0 WHERE ID_admin = ? ");
         $stmt->bind_param("i", $id_borrar);
         $stmt->execute();
         if($stmt->affected_rows) {

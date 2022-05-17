@@ -29,13 +29,14 @@ CREATE TABLE `admins` (
                           `nivel` int(1) NOT NULL,
                           `creado` datetime DEFAULT NULL,
                           `actualizado` datetime DEFAULT NULL,
+                          `estado` tinyint(1) DEFAULT NULL,
                           PRIMARY KEY (`ID_admin`),
                           UNIQUE KEY `usuario` (`usuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
 
 /*Data for the table `admins` */
 
-insert  into `admins`(`ID_admin`,`nombre_admin`,`apellido_admin`,`usuario`,`hash_pass`,`nivel`,`creado`,`actualizado`) values (1,'admin','admin','admin','$2y$12$lHcrW0zESdGLopYmrO4eA.b4BG.bEPRu0Q81UQb449WcwPizJoYIG',1,NULL,'2022-04-22 23:04:31'),(2,'Anthony','Piguave','anthony','$2y$12$JTF5VEf.wPmmPZ3KDyZ4teBN09VB.ym1nKpvbV/g8bnazVSrMOlLO',0,'2022-04-25 20:39:16',NULL);
+insert  into `admins`(`ID_admin`,`nombre_admin`,`apellido_admin`,`usuario`,`hash_pass`,`nivel`,`creado`,`actualizado`,`estado`) values (1,'admin','admin','admin','$2y$12$lHcrW0zESdGLopYmrO4eA.b4BG.bEPRu0Q81UQb449WcwPizJoYIG',1,NULL,'2022-04-22 23:04:31',1),(2,'Anthony','Piguave','anthony','$2y$12$JTF5VEf.wPmmPZ3KDyZ4teBN09VB.ym1nKpvbV/g8bnazVSrMOlLO',0,'2022-04-25 20:39:16','2022-05-16 21:18:23',1);
 
 /*Table structure for table `categoria_evento` */
 
@@ -51,7 +52,7 @@ CREATE TABLE `categoria_evento` (
 
 /*Data for the table `categoria_evento` */
 
-insert  into `categoria_evento`(`id_categoria`,`cat_evento`,`icono`,`actualizado`) values (1,'Seminario','fa-university','0000-00-00 00:00:00'),(2,'Conferencia','fa-address-book','2022-04-23 13:04:35'),(3,'Talleres','fa-code','0000-00-00 00:00:00');
+insert  into `categoria_evento`(`id_categoria`,`cat_evento`,`icono`,`actualizado`) values (1,'SEMINARIO','fa-address-book','2022-05-16 22:19:05'),(2,'Conferencia','fa-address-book','2022-04-23 13:04:35'),(3,'Talleres','fa-code','0000-00-00 00:00:00');
 
 /*Table structure for table `cuentas_bancarias` */
 
@@ -67,12 +68,13 @@ CREATE TABLE `cuentas_bancarias` (
                                      `descripcion` varchar(100) DEFAULT NULL,
                                      `creado` datetime DEFAULT NULL,
                                      `actualizado` datetime DEFAULT NULL,
+                                     `estado` tinyint(1) DEFAULT NULL,
                                      PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 
 /*Data for the table `cuentas_bancarias` */
 
-insert  into `cuentas_bancarias`(`id`,`nombre_banco`,`tipo_cuenta`,`nro_cuenta`,`email`,`ced_ruc`,`descripcion`,`creado`,`actualizado`) values (1,'BANCO PICHINCHA','AHORRO','123','email@email.com','0953708050001','TRANFERENCIA BANCO PICHINCHA',NULL,NULL);
+insert  into `cuentas_bancarias`(`id`,`nombre_banco`,`tipo_cuenta`,`nro_cuenta`,`email`,`ced_ruc`,`descripcion`,`creado`,`actualizado`,`estado`) values (1,'PICHINCHA','CORRIENTE','123','email@email.com','0953708050001','TRANFERENCIA BANCO PICHINCHA',NULL,'2022-05-16 21:58:24',1),(32,'GUAYAQUIL','AHORRO','12345',' email@email.com ','09537663660','Descripción','2022-05-16 21:23:21','2022-05-16 22:08:30',1);
 
 /*Table structure for table `eventos` */
 
@@ -89,16 +91,17 @@ CREATE TABLE `eventos` (
                            `clave` varchar(10) NOT NULL,
                            `fecha_creado` datetime DEFAULT NULL,
                            `fecha_editado` date DEFAULT NULL,
+                           `estado` tinyint(1) DEFAULT NULL,
                            PRIMARY KEY (`evento_id`),
                            KEY `id_cat_evento` (`id_cat_evento`),
                            KEY `id_inv` (`id_inv`),
                            CONSTRAINT `eventos_ibfk_1` FOREIGN KEY (`id_cat_evento`) REFERENCES `categoria_evento` (`id_categoria`),
                            CONSTRAINT `eventos_ibfk_2` FOREIGN KEY (`id_inv`) REFERENCES `invitados` (`invitado_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8;
 
 /*Data for the table `eventos` */
 
-insert  into `eventos`(`evento_id`,`nombre_evento`,`fecha_evento`,`hora_evento`,`cupo`,`id_cat_evento`,`id_inv`,`clave`,`fecha_creado`,`fecha_editado`) values (4,'HTML5 y CSS3','2016-12-09','02:00 PM',0,3,3,'taller_01',NULL,'2022-05-05'),(6,'WordPress','2016-12-09','19:00:00',NULL,3,5,'taller_13',NULL,NULL),(7,'Como ser freelancer','2016-12-09','10:00:00',NULL,2,6,'conf_01',NULL,NULL),(8,'Tecnologías del Futuro PHP','2016-12-09','05:00 PM',NULL,2,3,'conf_02',NULL,NULL),(9,'Seguridad en la Web','2016-12-09','07:00 PM',NULL,2,2,'conf_03',NULL,NULL),(10,'Diseño UI y UX para móviles','2016-12-09','10:00:00',NULL,1,6,'sem_01',NULL,NULL),(12,'PHP y MySQL','2016-12-10','12:00:00',NULL,3,2,'taller_03',NULL,NULL),(13,'JavaScript Avanzado','2016-12-10','14:00:00',NULL,3,3,'taller_04',NULL,NULL),(14,'SEO en Google','2016-12-10','17:00:00',NULL,3,4,'taller_05',NULL,NULL),(15,'De Photoshop a HTML5 y CSS3','2016-12-10','19:00:00',NULL,3,5,'taller_06',NULL,NULL),(16,'PHP Intermedio y Avanzado','2016-12-10','21:00:00',NULL,3,6,'taller_07',NULL,NULL),(17,'Como crear una tienda online que venda millones en pocos día','2016-12-10','10:00:00',NULL,2,6,'conf_04',NULL,NULL),(18,'Los mejores lugares para encontrar trabajo','2016-12-10','17:00:00',NULL,2,1,'conf_05',NULL,NULL),(19,'Pasos para crear un negocio rentable ','2016-12-10','19:00:00',NULL,2,2,'conf_06',NULL,NULL),(22,'Laravel','2016-12-11','10:00:00',NULL,3,1,'taller_08',NULL,NULL),(23,'Crea tu propia API','2016-12-11','12:00:00',NULL,3,2,'taller_09',NULL,NULL),(24,'JavaScript y jQuery','2016-12-11','14:00:00',NULL,3,3,'taller_10',NULL,NULL),(25,'Creando Plantillas para WordPress','2016-12-11','17:00:00',NULL,3,4,'taller_11',NULL,NULL),(26,'Tiendas Virtuales en Magento','2016-12-11','19:00:00',NULL,3,5,'taller_12',NULL,NULL),(30,'Creando una App en Android en una mañana','2016-12-11','10:00:00',NULL,1,4,'sem_04',NULL,NULL),(31,'Creando una App en iOS en una tarde','2016-12-11','17:00:00',NULL,1,1,'sem_05',NULL,NULL),(32,'Flexbox para principiantes','2016-12-10','11:00:00',NULL,2,4,'conf_07',NULL,NULL),(78,'Apache Ignite: Mejora la Velocidad, la Escala y la Disponibi','2022-04-01','08:00 AM',25,3,3,'','2022-04-25 22:10:00',NULL),(79,'Utilizando la Red Informática ToolKit (CNTK) - Guayaquil','2022-04-01','10:00 PM',26,3,3,'','2022-04-25 22:21:53',NULL);
+insert  into `eventos`(`evento_id`,`nombre_evento`,`fecha_evento`,`hora_evento`,`cupo`,`id_cat_evento`,`id_inv`,`clave`,`fecha_creado`,`fecha_editado`,`estado`) values (4,'HTML5 y CSS3','2016-12-09','02:00 PM',0,3,3,'taller_01',NULL,'2022-05-05',0),(6,'WordPress','2016-12-09','19:00:00',NULL,3,5,'taller_13',NULL,NULL,0),(7,'Como ser freelancer','2016-12-09','10:00:00',NULL,2,6,'conf_01',NULL,NULL,0),(8,'Tecnologías del Futuro PHP','2016-12-09','05:00 PM',NULL,2,3,'conf_02',NULL,NULL,0),(9,'Seguridad en la Web','2016-12-09','07:00 PM',NULL,2,2,'conf_03',NULL,NULL,0),(10,'Diseño UI y UX para móviles','2016-12-09','10:00:00',NULL,1,6,'sem_01',NULL,NULL,0),(12,'PHP y MySQL','2016-12-10','12:00:00',NULL,3,2,'taller_03',NULL,NULL,0),(13,'JavaScript Avanzado','2016-12-10','14:00:00',NULL,3,3,'taller_04',NULL,NULL,0),(14,'SEO en Google','2016-12-10','17:00:00',NULL,3,4,'taller_05',NULL,NULL,0),(15,'De Photoshop a HTML5 y CSS3','2016-12-10','19:00:00',NULL,3,5,'taller_06',NULL,NULL,0),(16,'PHP Intermedio y Avanzado','2016-12-10','21:00:00',NULL,3,6,'taller_07',NULL,NULL,0),(17,'Como crear una tienda online que venda millones en pocos día','2016-12-10','10:00 AM',0,2,2,'conf_04',NULL,'2022-05-16',1),(18,'Los mejores lugares para encontrar trabajo','2016-12-10','17:00:00',NULL,2,1,'conf_05',NULL,NULL,0),(19,'Pasos para crear un negocio rentable ','2016-12-10','19:00:00',NULL,2,2,'conf_06',NULL,NULL,0),(22,'Laravel','2016-12-11','10:00:00',NULL,3,1,'taller_08',NULL,NULL,0),(23,'Crea tu propia API','2016-12-11','12:00:00',NULL,3,2,'taller_09',NULL,NULL,0),(24,'JavaScript y jQuery','2016-12-11','14:00:00',NULL,3,3,'taller_10',NULL,NULL,0),(25,'Creando Plantillas para WordPress','2016-12-11','17:00:00',NULL,3,4,'taller_11',NULL,NULL,0),(26,'Tiendas Virtuales en Magento','2016-12-11','19:00:00',NULL,3,5,'taller_12',NULL,NULL,0),(30,'Creando una App en Android en una mañana','2016-12-11','10:00:00',NULL,1,4,'sem_04',NULL,NULL,0),(31,'Creando una App en iOS en una tarde','2016-12-11','17:00:00',NULL,1,1,'sem_05',NULL,NULL,0),(32,'Flexbox para principiantes','2016-12-10','11:00:00',NULL,2,4,'conf_07',NULL,NULL,0),(78,'Apache Ignite: Mejora la Velocidad, la Escala y la Disponibi','2022-05-31','08:00 AM',25,3,3,'','2022-04-25 22:10:00',NULL,1),(79,'Utilizando la Red Informática ToolKit (CNTK) - Guayaquil','2022-07-01','10:00 PM',26,3,3,'','2022-04-25 22:21:53',NULL,1),(81,'PYTHON & JAVASCRIPT','2022-05-25','10:15 PM',20,2,2,'','2022-05-16 22:19:19','2022-05-16',1),(82,'JAVA Y KOTLIN','2022-05-31','10:15 PM',20,3,3,'','2022-05-16 22:23:03','2022-05-16',1);
 
 /*Table structure for table `invitados` */
 

@@ -49,7 +49,7 @@ include_once 'templates/header.php'; ?>
                 <?php
                     try {
 
-                        $sql = "SELECT ID_admin, usuario, nombre_admin, apellido_admin FROM `admins` ";
+                        $sql = "SELECT ID_admin, usuario, nombre_admin, apellido_admin FROM `admins` WHERE estado = 1";
                         $resultado = $conn->query($sql);
                     } catch (Exception $e) {
                         $error = $e->getMessage();

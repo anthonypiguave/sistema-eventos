@@ -50,7 +50,7 @@ include_once 'templates/header.php'; ?>
                   <?php
 
                   try {
-                      $sql = "SELECT * FROM cuentas_bancarias"; //Crea consulta SQL
+                      $sql = "SELECT * FROM cuentas_bancarias WHERE estado = 1"; //Crea consulta SQL
 
                       $respuesta = $conn->query($sql); //Ejecuta consulta SQL
 

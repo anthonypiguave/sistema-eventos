@@ -50,7 +50,7 @@ include_once 'templates/header.php'; ?>
                 <?php
                   try {
 
-                    $sql = "SELECT `evento_id`, `nombre_evento`, `fecha_evento`, `hora_evento` , `cat_evento`, `nombre_invitado`, `apellido_invitado` ";
+                    $sql = "SELECT `evento_id`, `nombre_evento`, `fecha_evento`, `hora_evento` , `cat_evento`, `nombre_invitado`, `apellido_invitado`, `estado`";
                     $sql .= "FROM `eventos` ";
                     $sql .= "INNER JOIN `categoria_evento` ";
                     $sql .= "ON eventos.id_cat_evento=categoria_evento.id_categoria ";
@@ -64,7 +64,16 @@ include_once 'templates/header.php'; ?>
 
                   while($eventos = $resultado->fetch_assoc() ) {  ?>
                       <tr>
-                              <td><?php echo $eventos['nombre_evento']; ?></td>
+                              <td>
+                                  <?php echo $eventos['nombre_evento'];
+                                  $estado = $eventos['estado'];
+                                  if($estado == 1):
+                                    echo ' '.'<span class="badge bg-green">Activo</span>';
+                                  else:
+                                    echo ' '.'<span class="badge bg-red">Inactivo</span>';
+                                  endif;
+                                  ?>
+                              </td>
                               <td><?php echo $eventos['fecha_evento'] ." ". $eventos['hora_evento'];  ?></td>
                               <td><?php echo $eventos['cat_evento'] ?></td>
                               <td><?php echo $eventos['nombre_invitado'] . " " . $eventos['apellido_invitado']; ?></td>

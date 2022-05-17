@@ -1,14 +1,14 @@
-<?php 
+<?php
     include_once 'funciones/sesion.php';
     include_once 'funciones/funciones.php';
     include_once 'templates/header.php';
- 
+
      $id = $_GET['id'];
- 
+
      if (!filter_var($id, FILTER_VALIDATE_INT)):
         die('ERROR!');
      else:
-        
+
 ?>
 
 <body  class="hold-transition skin-blue fixed sidebar-mini" data-elemento="Eventos">
@@ -23,18 +23,18 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
- 
+
       <h1 class="text-center">
         Actualizar Evento
         <small>Utilice el formulario para actualizar el evento</small>
       </h1>
 
-      
+
     </section>
 
     <!-- Main content -->
     <section class="content">
-            
+
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="box box-primary">
@@ -43,7 +43,7 @@
                             </div>
                             <!-- /.box-header -->
                                 <!-- form start -->
-                                <?php 
+                                <?php
                                     $sql = "SELECT * FROM `eventos` WHERE `evento_id` = $id";
                                     $res = $conn->query($sql);
                                     $evento = $res->fetch_assoc();
@@ -59,17 +59,17 @@
                                                 <label>Categoria</label>
                                                 <select name="categoria_evento" class="form-control select2" style="width: 100%;">
                                                 <option value="0">- Seleccione -</option>
-                                                <?php 
+                                                <?php
                                                 try {
                                                         $categoria = $evento['id_cat_evento'];
                                                         $sql = "SELECT * FROM `categoria_evento`";
                                                         $res = $conn->query($sql);
-                                                        while($cat_eventos = $res->fetch_assoc()) { 
+                                                        while($cat_eventos = $res->fetch_assoc()) {
                                                             if($cat_eventos['id_categoria'] == $categoria) { ?>
                                                                 <option value="<?php echo $cat_eventos['id_categoria'] ?>" selected><?php echo $cat_eventos['cat_evento']; ?></option>
                                                         <?php   } else { ?>
                                                             <option value="<?php echo $cat_eventos['id_categoria'] ?>"><?php echo $cat_eventos['cat_evento']; ?></option>
-                                                        <?php   }    
+                                                        <?php   }
                                                         }
                                                 } catch (Exception $e) {
                                                     echo "Error:" . $e->getMessage();
@@ -77,13 +77,13 @@
                                                 ?>
                                                 </select>
                                             </div>
-                                            
+
                                             <div class="form-group">
                                                 <label>Fecha:</label>
-                                                <?php 
+                                                <?php
                                                     $fecha = $evento['fecha_evento'];
                                                     $fecha_formato = date("m/d/Y", strtotime($fecha));
-                                                    
+
                                                 ?>
                                                 <div class="input-group date">
                                                     <div class="input-group-addon">
@@ -104,7 +104,7 @@
                                                         ?>
                                                         <div class="input-group">
                                                             <input type="text" name="hora_evento" class="form-control timepicker" value="<?php echo $hora_formato; ?>">
-                                        
+
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-clock-o"></i>
                                                             </div>
@@ -130,17 +130,17 @@
                                                 <label>Invitado</label>
                                                 <select name="invitado_evento" class="form-control select2" style="width: 100%;">
                                                 <option value="0"> - Seleccione - </option>
-                                                <?php 
+                                                <?php
                                                 try {
                                                         $invitado = $evento['id_inv'];
                                                         $sql = "SELECT * FROM `invitados`";
                                                         $res = $conn->query($sql);
-                                                        while($invitados = $res->fetch_assoc()) { 
+                                                        while($invitados = $res->fetch_assoc()) {
                                                             if($invitados['invitado_id'] == $categoria) { ?>
                                                                 <option value="<?php echo $invitados['invitado_id'] ?>" selected><?php echo $invitados['nombre_invitado'] . " " . $invitados['apellido_invitado'] ?></option>
                                                         <?php   } else { ?>
                                                             <option value="<?php echo $invitados['invitado_id'] ?>"><?php echo $invitados['nombre_invitado'] . " " .  $invitados['apellido_invitado'] ?></option>
-                                                        <?php   }    
+                                                        <?php   }
                                                         }
                                                 } catch (Exception $e) {
                                                     echo "Error:" . $e->getMessage();
@@ -148,6 +148,19 @@
                                                 ?>
                                                 </select>
                                             </div>
+                                        <div class="form-group">
+                                            <label for="estado">Estado</label>
+                                            <select name="estado" id="estado" class="form-control">
+                                                <?php
+                                                if($evento['estado'] == 0 ) {?>
+                                                    <option value="0" selected><?php echo 'INACTIVO'; ?></option>
+                                                    <option value="1"><?php echo 'ACTIVO'; ?></option>
+                                                <?php } else { ?>
+                                                    <option value="0"><?php echo 'INACTIVO'; ?></option>
+                                                    <option value="1" selected><?php echo 'ACTIVO'; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
                                     </div>
                                     <!-- /.box-body -->
 
@@ -158,19 +171,19 @@
                                         <button type="submit" name="actualizar" id="actualizar" class="btn btn-primary">Actualizar</button>
                                     </div>
                                 </form>
-                            
+
                     </div>
                 </div>
-            </div> <!--.row-->  
+            </div> <!--.row-->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
 
-<?php 
+<?php
   $conn->close();
-  
+
   include_once 'templates/footer.php';
   include_once 'templates/footer-scripts.php';
 

@@ -20,11 +20,17 @@ if(isset($_POST['descripcion'])){
 if(isset($_POST['nro_cuenta'])){
     $nro_cuenta = $_POST['nro_cuenta'];
 }
+if(isset($_POST['id_registro'])){
+    $id_registro = $_POST['id_registro'];
+}
+if(isset($_POST['estado'])){
+    $estado = $_POST['estado'];
+}
 
 
 if($_POST['registro'] == 'nuevo') {
     try {
-        $stmt = $conn->prepare("INSERT INTO cuentas_bancarias (nombre_banco, tipo_cuenta, nro_cuenta, email, ced_ruc, descripcion, creado)values(?, ?, ?, ?, ?, ?, now())");
+        $stmt = $conn->prepare("INSERT INTO cuentas_bancarias (nombre_banco, tipo_cuenta, nro_cuenta, email, ced_ruc, descripcion, creado, estado)values(?, ?, ?, ?, ?, ?, now(), 1)");
         $stmt->bind_param("ssssss", $nombre_banco, $tipo_cuenta, $nro_cuenta, $email, $ced_ruc, $descripcion);
         $stmt->execute();
         if($stmt->affected_rows) {
@@ -52,24 +58,9 @@ if($_POST['registro'] == 'nuevo') {
 }
 
 if($_POST['registro'] == 'actualizar') {
-    $id_registro = $_POST['id_registro'];
-    $usuario = $_POST['usuario'];
-    $nuevo_password = $_POST['nuevo_password'];
     try {
-        $opciones = array(
-            'cost' => 12,
-        );
-        if(empty($_POST['nuevo_password']) && empty($_POST['repetir_password'])) {
-            $stmt = $conn->prepare("UPDATE admins SET usuario = ?, actualizado = NOW() WHERE ID_admin = ?  ");
-            $stmt->bind_param("si", $usuario, $id_registro);
-
-        } else {
-            $hash_password = password_hash($nuevo_password, PASSWORD_BCRYPT, $opciones);
-            $stmt = $conn->prepare("UPDATE admins SET usuario = ?,  hash_pass = ? WHERE ID_admin = ?  ");
-            $stmt->bind_param("ssi", $usuario, $hash_password, $id_registro);
-
-        }
-
+        $stmt = $conn->prepare("UPDATE cuentas_bancarias SET nombre_banco = ?,  tipo_cuenta = ?, nro_cuenta = ?, email = ?, ced_ruc = ?, descripcion = ?, estado = ?, actualizado = NOW() WHERE id = ?  ");
+        $stmt->bind_param("ssssssii", $nombre_banco, $tipo_cuenta, $nro_cuenta, $email, $ced_ruc, $descripcion, $estado, $id_registro);
         $stmt->execute();
         if($stmt->affected_rows) {
             $respuesta = array(
@@ -77,7 +68,6 @@ if($_POST['registro'] == 'actualizar') {
                 'id_actualizado' => $stmt->insert_id,
                 'tipo' => 'cuentas'
             );
-
         } else {
             $respuesta = array(
                 'respuesta' => 'error'
@@ -99,7 +89,7 @@ if($_POST['registro'] == 'eliminar'){
     $id_borrar = $_POST['id'];
 
     try {
-        $stmt = $conn->prepare("DELETE FROM cuentas_bancarias WHERE id = ? ");
+        $stmt = $conn->prepare("UPDATE cuentas_bancarias SET estado = 0 WHERE id = ? ");
         $stmt->bind_param("i", $id_borrar);
         $stmt->execute();
         if($stmt->affected_rows) {

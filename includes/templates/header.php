@@ -21,12 +21,12 @@
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>XENTURION |
+        <title>Xenturion |
             <?php
             if ($pagina == 'index'){
-                echo strtoupper('inicio');
+                echo ucwords(strtolower('inicio'));
             }else{
-                echo strtoupper($pagina);
+                echo ucwords(strtolower($pagina));
             }
             ?>
         </title>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once 'funciones/sesion.php';
 include_once 'funciones/funciones.php';
 include_once 'templates/header.php'; ?>
@@ -21,7 +21,7 @@ include_once 'templates/header.php'; ?>
         <small>Administra las categorias de eventos desde esta página</small>
       </h1>
 
-      
+
     </section>
 
     <section class="content">
@@ -40,6 +40,7 @@ include_once 'templates/header.php'; ?>
                         <tr>
                             <th>Nombre</th>
                             <th>Icono</th>
+                            <th>Estado</th>
                             <th>Acciones</th>
                         </tr>
                 </thead>
@@ -47,7 +48,7 @@ include_once 'templates/header.php'; ?>
 
                 <?php
                   try {
-                    $sql = "SELECT * FROM categoria_evento ";
+                    $sql = "SELECT * FROM categoria_evento WHERE estado_categoria = 1";
                     $resultado = $conn->query($sql);
                   } catch (Exception $e) {
                     $error = $e->getMessage();
@@ -55,20 +56,31 @@ include_once 'templates/header.php'; ?>
 
                   while($categoria = $resultado->fetch_assoc() ) {  ?>
                       <tr>
-                              <td><?php echo $categoria['cat_evento']; ?></td>
+                              <td>
+                                  <?php echo $categoria['cat_evento'];?>
+                              </td>
                               <td><i class="fa <?php echo $categoria['icono']; ?>"><i></td>
+                              <td>
+                                  <?php $estado = $categoria['estado_categoria'];
+                                  if($estado == 1):
+                                  echo ' ' . '<span class="badge bg-green">Activo</span>';
+                                  else:
+                                  echo  ' ' . '<span class="badge bg-red">Inactivo</span>';
+                                  endif;?>
+                              </td>
                               <td>
                                   <a href="editar-categoria.php?id=<?php echo $categoria['id_categoria']; ?>" type="button" class="btn bg-orange btn-flat margin"> <i class="fa fa-pencil" aria-hidden="true"></i></a>
                                   <a href="#" data-id="<?php echo $categoria['id_categoria']; ?>" data-tipo="categoria" type="button" class="btn bg-maroon btn-flat margin borrar_registro"><i class="fa fa-trash" aria-hidden="true"></i></a>
                              </td>
-                      </tr>  
+                      </tr>
                   <?php } ?>
-                  
+
                 </tbody>
                 <tfoot>
                       <tr>
                             <th>Nombre</th>
                             <th>Icono</th>
+                            <th>Estado</th>
                             <th>Acciones</th>
                       </tr>
                 </tfoot>
@@ -87,7 +99,7 @@ include_once 'templates/header.php'; ?>
   <!-- /.content-wrapper -->
 
 
-<?php 
+<?php
   $conn->close();
   include_once 'templates/footer.php';
   include_once 'templates/footer-scripts.php';

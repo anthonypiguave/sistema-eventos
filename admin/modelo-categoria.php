@@ -12,6 +12,9 @@ $fecha_formato = date("Y-m-d", strtotime($fecha));
 //obtener hora
 $hora =isset($_POST['hora_evento']);
 $id_registro = isset($_POST['id_registro']);
+if (isset($_POST['estado'])){
+    $estado = $_POST['estado'];
+};
 
 if($_POST['registro'] == 'nuevo') {
 
@@ -19,7 +22,7 @@ if($_POST['registro'] == 'nuevo') {
     $nombre_categoria = $_POST['nombre_categoria'];
 
     try {
-        $stmt = $conn->prepare("INSERT INTO categoria_evento (cat_evento, icono) VALUES (?,?)");
+        $stmt = $conn->prepare("INSERT INTO categoria_evento (cat_evento, icono, estado_categoria) VALUES (?,?, 1)");
         $stmt->bind_param("ss", $nombre_categoria, $icono);
         $stmt->execute();
         if($stmt->affected_rows) {
@@ -54,8 +57,8 @@ if($_POST['registro'] == 'actualizar') {
 
 
     try {
-        $stmt = $conn->prepare("UPDATE categoria_evento SET cat_evento = ?,  icono = ?, actualizado = NOW()  WHERE id_categoria = ?  ");
-        $stmt->bind_param("ssi", $categoria, $icono, $id_registro);
+        $stmt = $conn->prepare("UPDATE categoria_evento SET cat_evento = ?,  icono = ?, actualizado = NOW(), estado_categoria = ? WHERE id_categoria = ?  ");
+        $stmt->bind_param("ssii", $categoria, $icono, $estado, $id_registro);
         $stmt->execute();
         $resultado = $stmt->get_result();
         if($stmt->affected_rows) {
@@ -86,7 +89,7 @@ if($_POST['registro'] == 'eliminar'){
     $id_borrar = $_POST['id'];
 
     try {
-        $stmt = $conn->prepare("DELETE FROM categoria_evento WHERE id_categoria = ? ");
+        $stmt = $conn->prepare("UPDATE categoria_evento SET estado_categoria = 0 WHERE id_categoria = ? ");
         $stmt->bind_param("i", $id_borrar);
         $stmt->execute();
         if($stmt->affected_rows) {

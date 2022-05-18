@@ -21,6 +21,10 @@ if (isset($_POST['nuevo_password'])) {
 if(isset($_POST['nivel'])){
     $nivel = $_POST['nivel'];
 }
+if (isset($_POST['estado'])){
+    $estado = $_POST['estado'];
+};
+
 
 if($_POST['registro'] == 'nuevo') {
     try {
@@ -60,13 +64,13 @@ if($_POST['registro'] == 'actualizar') {
             'cost' => 12,
         );
         if(empty($_POST['nuevo_password']) && empty($_POST['repetir_password'])) {
-            $stmt = $conn->prepare("UPDATE admins SET usuario = ?, actualizado = NOW() WHERE ID_admin = ?  ");
-            $stmt->bind_param("si", $usuario, $id_registro);
+            $stmt = $conn->prepare("UPDATE admins SET usuario = ?, actualizado = NOW(), estado_admin = ? WHERE ID_admin = ?  ");
+            $stmt->bind_param("sii", $usuario, $estado, $id_registro);
 
         } else {
             $hash_password = password_hash($nuevo_password, PASSWORD_BCRYPT, $opciones);
-            $stmt = $conn->prepare("UPDATE admins SET usuario = ?,  hash_pass = ?, actualizado = NOW() WHERE ID_admin = ?  ");
-            $stmt->bind_param("ssi", $usuario, $hash_password, $id_registro);
+            $stmt = $conn->prepare("UPDATE admins SET usuario = ?,  hash_pass = ?, actualizado = NOW(), estado_admin = ? WHERE ID_admin = ?  ");
+            $stmt->bind_param("ssii", $usuario, $hash_password, $estado, $id_registro);
 
         }
 
@@ -99,7 +103,7 @@ if($_POST['registro'] == 'eliminar'){
     $id_borrar = $_POST['id'];
 
     try {
-        $stmt = $conn->prepare("UPDATE admins SET estado = 0 WHERE ID_admin = ? ");
+        $stmt = $conn->prepare("UPDATE admins SET estado_invitado = 0 WHERE ID_admin = ? ");
         $stmt->bind_param("i", $id_borrar);
         $stmt->execute();
         if($stmt->affected_rows) {

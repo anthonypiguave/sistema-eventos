@@ -56,7 +56,7 @@ include_once 'templates/header.php'; ?>
                     $sql .= "ON eventos.id_cat_evento=categoria_evento.id_categoria ";
                     $sql .= "INNER JOIN `invitados` ";
                     $sql .= "ON eventos.id_inv=invitados.invitado_id ";
-                    $sql .= "ORDER BY `evento_id` ";
+                    $sql .= "ORDER BY `estado_evento` DESC";
                     $resultado = $conn->query($sql);
                   } catch (Exception $e) {
                     $error = $e->getMessage();
@@ -65,18 +65,21 @@ include_once 'templates/header.php'; ?>
                   while($eventos = $resultado->fetch_assoc() ) {  ?>
                       <tr>
                               <td>
-                                  <?php echo $eventos['nombre_evento'];
-                                  $estado = $eventos['estado_evento'];
-                                  if($estado == 1):
-                                    echo ' '.'<span class="badge bg-green">Activo</span>';
-                                  else:
-                                    echo ' '.'<span class="badge bg-red">Inactivo</span>';
-                                  endif;
-                                  ?>
+                                  <?php echo $eventos['nombre_evento'];?>
                               </td>
                               <td><?php echo $eventos['fecha_evento'] ." ". $eventos['hora_evento'];  ?></td>
                               <td><?php echo $eventos['cat_evento'] ?></td>
                               <td><?php echo $eventos['nombre_invitado'] . " " . $eventos['apellido_invitado']; ?></td>
+                              <td>
+                                  <?php
+                                  $estado = $eventos['estado_evento'];
+                                  if($estado == 1):
+                                      echo ' '.'<span class="badge bg-green">Activo</span>';
+                                  else:
+                                      echo ' '.'<span class="badge bg-red">Inactivo</span>';
+                                  endif;
+                                  ?>
+                              </td>
                               <td>
                                   <a href="editar-evento.php?id=<?php echo $eventos['evento_id']; ?>" type="button" class="btn bg-orange btn-flat margin"> <i class="fa fa-pencil" aria-hidden="true"></i></a>
                                   <a href="#" data-id="<?php echo $eventos['evento_id']; ?>" data-tipo="evento" type="button" class="btn bg-maroon btn-flat margin borrar_registro"><i class="fa fa-trash" aria-hidden="true"></i></a>

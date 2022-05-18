@@ -21,6 +21,10 @@ if(isset($_POST['url_facebook'])){
 if(isset($_POST['url_instagram'])){
     $url_instagram =$_POST['url_instagram'];
 }
+if (isset($_POST['estado'])){
+    $estado = $_POST['estado'];
+};
+
 // funciones
 if($_POST['registro'] == 'nuevo') {
     /*
@@ -46,7 +50,7 @@ if($_POST['registro'] == 'nuevo') {
     }
 
     try {
-        $stmt = $conn->prepare("INSERT INTO invitados (nombre_invitado, apellido_invitado, descripcion, url_imagen, url_facebook, url_twitter, url_instagram ) VALUES (?,?,?,?,?,?,?)");
+        $stmt = $conn->prepare("INSERT INTO invitados (nombre_invitado, apellido_invitado, descripcion, url_imagen, url_facebook, url_twitter, url_instagram, estado_invitado ) VALUES (?,?,?,?,?,?,?, 1)");
         $stmt->bind_param("sssssss", $nombre, $apellido, $biografia, $imagen_url, $url_facebook, $url_twitter, $url_instagram);
         $stmt->execute();
         // $stmt->error
@@ -99,12 +103,12 @@ if($_POST['registro'] == 'actualizar') {
 
         if($_FILES['archivo_imagen']['size'] > 0){
             // con imagen
-            $stmt = $conn->prepare("UPDATE invitados SET nombre_invitado = ?, apellido_invitado = ?, descripcion = ?, url_imagen = ?, editado = NOW(), url_facebook = ?, url_twitter = ?, url_instagram = ? WHERE invitado_id = ? ");
-            $stmt->bind_param("sssssssi", $nombre, $apellido, $biografia, $imagen_url, $url_facebook, $url_twitter, $url_instagram, $id_registro);
+            $stmt = $conn->prepare("UPDATE invitados SET nombre_invitado = ?, apellido_invitado = ?, descripcion = ?, url_imagen = ?, editado = NOW(), url_facebook = ?, url_twitter = ?, url_instagram = ?, estado_invitado = ? WHERE invitado_id = ? ");
+            $stmt->bind_param("sssssssii", $nombre, $apellido, $biografia, $imagen_url, $url_facebook, $url_twitter, $url_instagram, $estado, $id_registro);
         } else {
             // sin imagen
-            $stmt = $conn->prepare("UPDATE invitados SET nombre_invitado = ?, apellido_invitado = ?, descripcion = ?, editado = NOW(),  url_facebook = ?, url_twitter = ?, url_instagram = ? WHERE invitado_id = ? ");
-            $stmt->bind_param("ssssssi", $nombre, $apellido, $biografia,  $url_facebook, $url_twitter, $url_instagram, $id_registro);
+            $stmt = $conn->prepare("UPDATE invitados SET nombre_invitado = ?, apellido_invitado = ?, descripcion = ?, editado = NOW(),  url_facebook = ?, url_twitter = ?, url_instagram = ?, estado_invitado = ?  WHERE invitado_id = ? ");
+            $stmt->bind_param("ssssssii", $nombre, $apellido, $biografia,  $url_facebook, $url_twitter, $url_instagram, $estado, $id_registro);
         }
         $stmt->execute();
         $rows = $stmt->affected_rows;
@@ -139,7 +143,7 @@ if($_POST['registro'] == 'eliminar'){
     $id_borrar = $_POST['id'];
 
     try {
-        $stmt = $conn->prepare("DELETE FROM invitados WHERE invitado_id = ? ");
+        $stmt = $conn->prepare("UPDATE invitados set estado_invitado = 0 WHERE invitado_id = ? ");
         $stmt->bind_param("i", $id_borrar);
         $stmt->execute();
         if($stmt->affected_rows) {

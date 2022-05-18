@@ -118,7 +118,7 @@
 
 
 <div class="contador parallax">
-    <div class="contenedor">
+    <div class="contenedor" data-aos="fade-up">
         <ul class="resumen-evento clearfix">
             <li><p class="numero">0</p> Invitados</li>
             <li><p class="numero">0</p> Talleres</li>
@@ -254,29 +254,61 @@
 <!--<div class="mapa">-->
 <!--    <iframe class="google-map" src="https://maps.google.com/maps?q=Pichincha%20%23334%20y%20Elizalde&t=m&z=18&output=embed&iwloc=near" width="100%" height="371.59" allowfullscreen="" loading="lazy"></iframe>-->
 <!--</div>-->
-<div id="contenedor_principal">
-    <div id="contenedor">
-        <div id="divmap">
-            <iframe class="google-map"
-                    src="https://maps.google.com/maps?q=Pichincha%20%23%20y%20Elizalde&t=m&z=18&output=embed&iwloc=near"
-                    width="100%" height="371.59" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-        <div id="divcontact">
-            <i class="bi bi-geo-alt"></i>
-            <h3>Dirección</h3>
-            <address>Pichincha 334 y Elizalde
-                Edificio El Comercio
-                Piso 6 – Oficina 601 <br/>Guayaquil, Ecuador.
-            </address>
-            <i class="bi bi-phone"></i>
-            <h3>Phone</h3>
-            <p><a href="tel:(04) 232-8580">(04) 232-8580</a></p>
-            <i class="bi bi-envelope"></i>
-            <h3>Email</h3>
-            <p><a href="mailto:solucionesit@xenturionit.com">solucionesit@xenturionit.com</a></p>
+<!--<div id="contenedor_principal">-->
+<!--    <div id="contenedor">-->
+<!--        <div id="divmap" class="col-lg-6 col-12">-->
+<!--            <iframe class="google-map"-->
+<!--                    src="https://maps.google.com/maps?q=Pichincha%20%23%20y%20Elizalde&t=m&z=18&output=embed&iwloc=near"-->
+<!--                    width="100%" height="371.59" allowfullscreen="" loading="lazy"></iframe>-->
+<!--        </div>-->
+<!--        <div id="divcontact">-->
+<!--            <i class="bi bi-geo-alt"></i>-->
+<!--            <h3>Dirección</h3>-->
+<!--            <address>Pichincha 334 y Elizalde-->
+<!--                Edificio El Comercio-->
+<!--                Piso 6 – Oficina 601 <br/>Guayaquil, Ecuador.-->
+<!--            </address>-->
+<!--            <i class="bi bi-phone"></i>-->
+<!--            <h3>Phone</h3>-->
+<!--            <p><a href="tel:(04) 232-8580">(04) 232-8580</a></p>-->
+<!--            <i class="bi bi-envelope"></i>-->
+<!--            <h3>Email</h3>-->
+<!--            <p><a href="mailto:solucionesit@xenturionit.com">solucionesit@xenturionit.com</a></p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<section class="venue section-padding" id="section_6" style="background: #273053; padding-bottom: 20px">
+    <div class="container" data-aos="fade-up">
+        <div class="row">
+            <div class="col-lg-12 col-12">
+                <h2  style="color: white; margin-top: 10px;">Contactanos</h2>
+            </div>
+            <div class="col-lg-6 col-12">
+                <iframe style="border-radius: 30px;" class="google-map"
+                        src="https://maps.google.com/maps?q=Pichincha%20%23%20y%20Elizalde&t=m&z=18&output=embed&iwloc=near"
+                        width="100%" height="371.59" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <div id="divcontact">
+                <i style="color: white;" class="bi bi-geo-alt"></i>
+                <h3 style="color: white;"><b>Dirección</b></h3>
+                <address style="color: white;">Pichincha 334 y Elizalde
+                    Edificio El Comercio
+                    Piso 6 – Oficina 601 <br/>Guayaquil, Ecuador.
+                </address>
+                <i style="color: white;" class="bi bi-phone"></i>
+                <h3 style="color: white;"><b>Teléfono</b></h3>
+                <p><a style="color: white;" href="tel:(04) 232-8580">(04) 232-8580</a></p>
+                <i style="color: white;" class="bi bi-envelope"></i>
+                <h3 style="color: white;"><b>Email</b></h3>
+                <p><a  style="color: white;" href="mailto:solucionesit@xenturionit.com">solucionesit@xenturionit.com</a>
+                </p>
+
+            </div>
+
         </div>
     </div>
-</div>
+</section>
 
 <!--<section id="faq">-->
 <!--    <div class="container" data-aos="fade-up">-->
@@ -323,7 +355,7 @@
 
 <section class="seccion">
     <h2>Faltan</h2>
-    <div class="cuenta-regresiva contenedor">
+    <div class="cuenta-regresiva contenedor" data-aos="fade-up">
         <ul class="clearfix">
             <li><p id="dias" class="numero_contador"></p> días</li>
             <li><p id="horas" class="numero_contador"></p> horas</li>
@@ -333,15 +365,15 @@
     </div>
     <?php
     $conn = new mysqli('localhost', 'root', '', 'xenturionit_respaldo');
-    if($conn->connect_error){
+    if ($conn->connect_error) {
         echo $error->$conn->connect_error;
     }
     $sql = "SELECT * FROM eventos  WHERE estado_evento = 1 ORDER BY CONCAT(fecha_evento, ' ', hora_evento) ASC LIMIT 1";
 
     $result = $conn->query($sql);
-    while ($row = $result->fetch_assoc()) {?>
-        <h3 id="contador" style="display: none"><?php  echo str_replace("-","/", $row['fecha_evento']); ?></h3>
-    <?php }?>
+    while ($row = $result->fetch_assoc()) { ?>
+        <h3 id="contador" style="display: none"><?php echo str_replace("-", "/", $row['fecha_evento']); ?></h3>
+    <?php } ?>
 
 </section>
 <?php include_once 'includes/templates/footer.php'; ?>

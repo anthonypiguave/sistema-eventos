@@ -87,6 +87,19 @@
 
                                                 <p class="help-block">Añada una imagen aquí</p>
                                             </div>
+                                        <div class="form-group">
+                                            <label for="estado">Estado</label>
+                                            <select name="estado" id="estado" class="form-control">
+                                                <?php
+                                                if($invitado['estado_invitado'] == 0 ) {?>
+                                                    <option value="0" selected><?php echo 'INACTIVO'; ?></option>
+                                                    <option value="1"><?php echo 'ACTIVO'; ?></option>
+                                                <?php } else { ?>
+                                                    <option value="0"><?php echo 'INACTIVO'; ?></option>
+                                                    <option value="1" selected><?php echo 'ACTIVO'; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
                                     </div>
                                     <!-- /.box-body -->
 

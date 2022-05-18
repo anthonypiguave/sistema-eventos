@@ -1,14 +1,14 @@
-<?php 
+<?php
     include_once 'funciones/sesion.php';
     include_once 'funciones/funciones.php';
     include_once 'templates/header.php';
- 
+
      $id = $_GET['id'];
- 
+
      if (!filter_var($id, FILTER_VALIDATE_INT)):
         die('ERROR!');
      else:
-        
+
 ?>
 
 <body  class="hold-transition skin-blue fixed sidebar-mini" data-elemento="Eventos">
@@ -23,18 +23,18 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
- 
+
       <h1 class="text-center">
         Actualizar Admin
         <small>Utilice el formulario para actualizar el administrador</small>
       </h1>
 
-      
+
     </section>
 
     <!-- Main content -->
     <section class="content">
-            
+
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="box box-primary">
@@ -43,8 +43,8 @@
                             </div>
                             <!-- /.box-header -->
                                 <!-- form start -->
-                                <?php 
-                                    $sql = "SELECT * FROM `admins` WHERE `ID_admin` = $id";
+                                <?php
+                                    $sql = "SELECT * FROM `admins` WHERE `ID_admin` = $id AND estado_admin=1";
                                     $res = $conn->query($sql);
                                     $admin = $res->fetch_assoc();
                                 ?>
@@ -77,6 +77,19 @@
                                                 <span id="resultado_password" class="help-block"></span>
                                                 <!-- /.input group -->
                                             </div>
+                                        <div class="form-group">
+                                            <label for="estado">Estado</label>
+                                            <select name="estado" id="estado" class="form-control">
+                                                <?php
+                                                if($admin['estado_admin'] == 0 ) {?>
+                                                    <option value="0" selected><?php echo 'INACTIVO'; ?></option>
+                                                    <option value="1"><?php echo 'ACTIVO'; ?></option>
+                                                <?php } else { ?>
+                                                    <option value="0"><?php echo 'INACTIVO'; ?></option>
+                                                    <option value="1" selected><?php echo 'ACTIVO'; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
                                     </div>
                                     <!-- /.box-body -->
 
@@ -87,19 +100,19 @@
                                         <button type="submit" name="actualizar" id="actualizar" class="btn btn-primary btn_actualizar_admin">Actualizar</button>
                                     </div>
                                 </form>
-                            
+
                     </div>
                 </div>
-            </div> <!--.row-->  
+            </div> <!--.row-->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
 
-<?php 
+<?php
   $conn->close();
-  
+
   include_once 'templates/footer.php';
   include_once 'templates/footer-scripts.php';
 

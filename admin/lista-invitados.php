@@ -41,6 +41,7 @@ include_once 'templates/header.php'; ?>
                             <th>Nombre</th>
                             <th>Descripción</th>
                             <th>Imagen</th>
+                            <th>Estado</th>
                             <th>Acciones</th>
                         </tr>
                 </thead>
@@ -48,7 +49,7 @@ include_once 'templates/header.php'; ?>
 
                 <?php
                   try {
-                    $sql = "SELECT * FROM invitados ";
+                    $sql = "SELECT * FROM invitados WHERE estado_invitado = 1";
                     $resultado = $conn->query($sql);
                   } catch (Exception $e) {
                     $error = $e->getMessage();
@@ -63,6 +64,16 @@ include_once 'templates/header.php'; ?>
                                       <img src="../img/invitados/<?php echo $invitado['url_imagen']; ?>" width="150" height="100">
                                   <?php }?>
                               </td>
+                          <td>
+                              <?php
+                              $estado = $invitado['estado_invitado'];
+                              if($estado == 1):
+                                  echo ' '.'<span class="badge bg-green">Activo</span>';
+                              else:
+                                  echo ' '.'<span class="badge bg-red">Inactivo</span>';
+                              endif;
+                              ?>
+                          </td>
                               <td>
                                   <a href="editar-invitado.php?id=<?php echo $invitado['invitado_id']; ?>" type="button" class="btn bg-orange btn-flat margin"> <i class="fa fa-pencil" aria-hidden="true"></i></a>
                                   <a href="#" data-id="<?php echo $invitado['invitado_id']; ?>" data-tipo="invitado" type="button" class="btn bg-maroon btn-flat margin borrar_registro"><i class="fa fa-trash" aria-hidden="true"></i></a>
@@ -76,6 +87,7 @@ include_once 'templates/header.php'; ?>
                         <th>Nombre</th>
                         <th>Descripción</th>
                         <th>Imagen</th>
+                        <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
                 </tfoot>

@@ -42,6 +42,7 @@ include_once 'templates/header.php'; ?>
                       <th>Correo Electrónico</th>
                       <th>Identificación</th>
                       <th>Descripción</th>
+                      <th>Estado</th>
                       <th>Acciones</th>
                   </tr>
                   </thead>
@@ -71,6 +72,16 @@ include_once 'templates/header.php'; ?>
                           <td> <?php echo $resultado['ced_ruc']; ?> </td>
                           <td> <?php echo $resultado['descripcion']; ?> </td>
                           <td>
+                              <?php
+                              $estado = $resultado['estado'];
+                              if($estado == 1):
+                                  echo ' '.'<span class="badge bg-green">Activo</span>';
+                              else:
+                                  echo ' '.'<span class="badge bg-red">Inactivo</span>';
+                              endif;
+                              ?>
+                          </td>
+                          <td>
                               <a href="editar-cuenta.php?id=<?php echo $resultado['id'];?>" class="btn bg-orange btn-flat margin">
                                   <i class="fa fa-pencil"></i>
                               </a>
@@ -94,6 +105,7 @@ include_once 'templates/header.php'; ?>
                       <th>Correo Electrónico</th>
                       <th>Identificación</th>
                       <th>Descripción</th>
+                      <th>Estado</th>
                       <th>Acciones</th>
                   </tr>
                   </tfoot>

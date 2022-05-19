@@ -1170,7 +1170,8 @@ h1, h4, h5, h6 {
 # Contact Section
 --------------------------------------------------------------*/
 #contact {
-    padding: 60px 0;
+    padding: 30px 0;
+    padding-bottom: 0px;
 }
 #contact .contact-info {
     margin-bottom: 20px;
@@ -1209,8 +1210,8 @@ h1, h4, h5, h6 {
 }
 @media (min-width: 768px) {
     #contact .contact-phone {
-        border-left: 1px solid #ddd;
-        border-right: 1px solid #ddd;
+        border-left: 0px solid #ddd;
+        border-right: 0px solid #ddd;
     }
 }
 

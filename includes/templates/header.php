@@ -41,6 +41,8 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald|PT+Sans" rel="stylesheet">
         <link href="css/aos.css" rel="stylesheet">
         <link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/contact.css">
+
         <?php
             $archivo = basename($_SERVER['PHP_SELF']);
             $pagina = str_replace(".php", "", $archivo);

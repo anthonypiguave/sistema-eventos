@@ -71,7 +71,7 @@
                     <li><a href="nuevo-invitado.php"><i class="fa fa-plus" aria-hidden="true"></i> Agregar</a></li>
                 </ul>
             </li>
-          <?php if($_SESSION['nivel'] == 1): ?>
+<!--          --><?php //if($_SESSION['nivel'] == 0): ?>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-address-card"></i> <span>Registrados </span>
@@ -84,7 +84,7 @@
 <!--                    <li><a href="nuevo-registrado.php"><i class="fa fa-plus" aria-hidden="true"></i> Agregar</a></li>-->
                 </ul>
             </li>
-          <?php endif; ?>
+<!--          --><?php //endif; ?>
 
             <?php if($_SESSION['nivel'] == 1): ?>
                 <li class="treeview">

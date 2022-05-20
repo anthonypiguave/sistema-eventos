@@ -1,7 +1,7 @@
 <?php
 try {
     require_once('includes/funciones/bd_conexion.php');
-    $sql = "SELECT * FROM `invitados` ";
+    $sql = "SELECT * FROM `invitados` WHERE estado_invitado = 1 ";
     $resultado = $conn->query($sql);
 } catch (Exception $e) {
     $error = $e->getMessage();

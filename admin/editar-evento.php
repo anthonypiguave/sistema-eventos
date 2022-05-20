@@ -62,7 +62,7 @@
                                                 <?php
                                                 try {
                                                         $categoria = $evento['id_cat_evento'];
-                                                        $sql = "SELECT * FROM `categoria_evento`";
+                                                        $sql = "SELECT * FROM `categoria_evento` WHERE estado_categoria = 1";
                                                         $res = $conn->query($sql);
                                                         while($cat_eventos = $res->fetch_assoc()) {
                                                             if($cat_eventos['id_categoria'] == $categoria) { ?>
@@ -133,7 +133,7 @@
                                                 <?php
                                                 try {
                                                         $invitado = $evento['id_inv'];
-                                                        $sql = "SELECT * FROM `invitados`";
+                                                        $sql = "SELECT * FROM `invitados` WHERE estado_invitado = 1";
                                                         $res = $conn->query($sql);
                                                         while($invitados = $res->fetch_assoc()) {
                                                             if($invitados['invitado_id'] == $categoria) { ?>

@@ -20,14 +20,14 @@ $fecha = date("d/m/Y");
 
 header("Content-Type: text/html;charset=utf-8");
 header("Content-Type: application/vnd.ms-excel charset=iso-8859-1");
-$filename = "registrados activos al " . $fecha . ".xls";
+$filename = "registrados inactivos al " . $fecha . ".xls";
 header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 header("Content-Disposition: attachment; filename=" . $filename . "");
 
 
 $sql = "SELECT registrados.*, regalos.nombre_regalo FROM registrados ";
 $sql .= " JOIN regalos ";
-$sql .= " ON registrados.regalo = regalos.id_regalo WHERE estado_registrado = 1";
+$sql .= " ON registrados.regalo = regalos.id_regalo WHERE estado_registrado = 0";
 
 $registrados = $conn->query($sql);
 

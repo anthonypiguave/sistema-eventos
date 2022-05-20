@@ -69,7 +69,7 @@
                                             <label for="estado">Estado</label>
                                             <select name="estado" id="estado" class="form-control">
                                                 <?php
-                                                if($categoria['estado'] == 0 ) {?>
+                                                if($categoria['estado_categoria'] == 0 ) {?>
                                                     <option value="0" selected><?php echo 'INACTIVO'; ?></option>
                                                     <option value="1"><?php echo 'ACTIVO'; ?></option>
                                                 <?php } else { ?>

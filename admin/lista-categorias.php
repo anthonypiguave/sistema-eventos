@@ -41,7 +41,9 @@ include_once 'templates/header.php'; ?>
                             <th>Nombre</th>
                             <th>Icono</th>
                             <th>Estado</th>
-                            <th>Acciones</th>
+                            <?php if($_SESSION['nivel'] == 1): ?>
+                                <th>Acciones</th>
+                            <?php endif; ?>
                         </tr>
                 </thead>
                 <tbody>
@@ -68,10 +70,12 @@ include_once 'templates/header.php'; ?>
                                   echo  ' ' . '<span class="badge bg-red">Inactivo</span>';
                                   endif;?>
                               </td>
+                      <?php if($_SESSION['nivel'] == 1): ?>
                               <td>
                                   <a href="editar-categoria.php?id=<?php echo $categoria['id_categoria']; ?>" type="button" class="btn bg-orange btn-flat margin"> <i class="fa fa-pencil" aria-hidden="true"></i></a>
                                   <a href="#" data-id="<?php echo $categoria['id_categoria']; ?>" data-tipo="categoria" type="button" class="btn bg-maroon btn-flat margin borrar_registro"><i class="fa fa-trash" aria-hidden="true"></i></a>
                              </td>
+                      <?php endif; ?>
                       </tr>
                   <?php } ?>
 
@@ -81,7 +85,9 @@ include_once 'templates/header.php'; ?>
                             <th>Nombre</th>
                             <th>Icono</th>
                             <th>Estado</th>
-                            <th>Acciones</th>
+                          <?php if($_SESSION['nivel'] == 1): ?>
+                              <th>Acciones</th>
+                          <?php endif; ?>
                       </tr>
                 </tfoot>
             </table>

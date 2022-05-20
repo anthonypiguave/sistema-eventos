@@ -32,8 +32,10 @@ include_once 'templates/header.php'; ?>
                         <div class="box-body">
 
                             <!--            <a href="nuevo-registrado.php" class="btn btn-success" style="margin-right: 800px;">Añadir Nuevo</a>-->
-                            <a class="btn btn-info" download="Mi_Excel" href="export/export_data_registrados.php">Exportar
-                                Excel Ahora</a>
+                            <?php if($_SESSION['nivel'] == 1): ?>
+                            <a class="btn btn-info" download="Mi_Excel" href="export/export_data_registrados.php">Exportar Excel</a>
+                            <a class="btn btn-danger" download="Mi_Excel" href="export/export_data_registrados_inactivos.php">Exportar Inactivos</a>
+                            <?php endif; ?>
                             <table id="registros" class="table table-bordered table-hover">
                                 <thead>
                                 <tr>
@@ -45,7 +47,9 @@ include_once 'templates/header.php'; ?>
                                     <th>Regalo</th>
                                     <th>Compra</th>
                                     <th>Estado</th>
-                                    <th>Acciones</th>
+                                    <?php if($_SESSION['nivel'] == 1): ?>
+                                        <th>Acciones</th>
+                                    <?php endif; ?>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -134,6 +138,7 @@ include_once 'templates/header.php'; ?>
                                             endif;
                                             ?>
                                         </td>
+                                    <?php if($_SESSION['nivel'] == 1): ?>
                                         <td>
                                             <a href="editar-registrado.php?id=<?php echo $registrado['ID_Registrado']; ?>"
                                                type="button" class="btn bg-orange btn-flat margin"> <i
@@ -143,6 +148,7 @@ include_once 'templates/header.php'; ?>
                                                class="btn bg-maroon btn-flat margin borrar_registro"><i
                                                     class="fa fa-trash" aria-hidden="true"></i></a>
                                         </td>
+                                    <?php endif; ?>
                                     </tr>
                                 <?php } ?>
 
@@ -158,7 +164,9 @@ include_once 'templates/header.php'; ?>
                                     <th>Regalo</th>
                                     <th>Compra</th>
                                     <th>Estado</th>
-                                    <th>Acciones</th>
+                                    <?php if($_SESSION['nivel'] == 1): ?>
+                                        <th>Acciones</th>
+                                    <?php endif; ?>
                                 </tr>
                                 </tfoot>
                             </table>

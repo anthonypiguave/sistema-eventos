@@ -48,7 +48,7 @@
                                                 <option value="0">- Seleccione -</option>
                                                 <?php
                                                 try {
-                                                    $sql = "SELECT * FROM `categoria_evento`";
+                                                    $sql = "SELECT * FROM `categoria_evento` WHERE estado_categoria = 1";
                                                     $res = $conn->query($sql);
                                                     while($cat_eventos = $res->fetch_assoc()) { ?>
                                                         <option value="<?php echo $cat_eventos['id_categoria'] ?>"><?php echo $cat_eventos['cat_evento']; ?></option>
@@ -106,7 +106,7 @@
                                                 <option value="0"> - Seleccione - </option>
                                                 <?php
                                                 try {
-                                                    $sql = "SELECT `invitado_id`, `nombre_invitado`, `apellido_invitado` FROM `invitados`";
+                                                    $sql = "SELECT `invitado_id`, `nombre_invitado`, `apellido_invitado`, `estado_invitado` FROM `invitados` WHERE estado_invitado = 1";
                                                     $res_invitados = $conn->query($sql);
                                                     while($invitados = $res_invitados->fetch_assoc()){ ?>
                                                         <option value="<?php echo $invitados['invitado_id'] ?>">

@@ -3,11 +3,10 @@
 <section class="seccion contenedor">
     <h2>La mejor conferencia de diseño web en español</h2>
     <p style="text-align: justify;">
-        Las conferencias, ponentes, categorías serán 100% administrables desde un Panel de Administración donde el
-        administrador del sitio web deberá iniciar sesión para poder administrar la información. Los visitantes podrán
-        comprar sus boletos, inscribirse a las conferencias, elegir un regalo y algunos otros artículos en venta. Los
-        pagos se procesarán por medio de PayPal y una vez que el pago es exitoso se almacenará en la base de datos y la
-        persona estará inscrita a la conferencia.
+        XenturionIT está conformado por un equipo de profesionales especializados en diferentes campos de TI cuyo
+        propósito es generar valor agregado a nuestros socios estratégicos poniendo a su disposición toda la experiencia
+        adquirida durante la dilatada trayectoria profesional de sus colaboradores y la constante capacitación del
+        personal interno.
     </p>
 </section> <!--seccion-->
 
@@ -116,63 +115,16 @@
 
 <?php include_once 'includes/templates/invitados.php'; ?>
 
-
 <div class="contador parallax">
     <div class="contenedor" data-aos="fade-up">
         <ul class="resumen-evento clearfix">
             <li><p class="numero">0</p> Invitados</li>
             <li><p class="numero">0</p> Talleres</li>
-            <li><p class="numero">0</p> Días</li>
+            <li><p class="numero">0</p> Categorias</li>
             <li><p class="numero">0</p> Conferencias</li>
-
         </ul>
     </div>
 </div>
-
-<!--        <section class="precios seccion">-->
-<!--            <h2>Precios</h2>-->
-<!--            <div class="contenedor">-->
-<!--                  <ul class="lista-precios clearfix">-->
-<!--                      <li>-->
-<!--                            <div class="tabla-precio">-->
-<!--                                <h3>Pase por día</h3>-->
-<!--                                <p class="numero">$30</p>-->
-<!--                                <ul>-->
-<!--                                  <li>Bocadillos Gratis</li>-->
-<!--                                  <li>Todas las conferencias</li>-->
-<!--                                  <li>Todos los talleres</li>-->
-<!--                                </ul>-->
-<!--                                <a href="#" class="button hollow">Comprar</a>-->
-<!--                            </div>-->
-<!--                      </li>-->
-<!--                      <li>-->
-<!--                            <div class="tabla-precio">-->
-<!--                                <h3>Todos los días</h3>-->
-<!--                                <p class="numero">$50</p>-->
-<!--                                <ul>-->
-<!--                                  <li>Bocadillos Gratis</li>-->
-<!--                                  <li>Todas las conferencias</li>-->
-<!--                                  <li>Todos los talleres</li>-->
-<!--                                </ul>-->
-<!--                                <a href="#" class="button">Comprar</a>-->
-<!--                            </div>-->
-<!--                      </li>-->
-<!---->
-<!--                      <li>-->
-<!--                            <div class="tabla-precio">-->
-<!--                                <h3>Pase por 2 días</h3>-->
-<!--                                <p class="numero">$45</p>-->
-<!--                                <ul>-->
-<!--                                  <li>Bocadillos Gratis</li>-->
-<!--                                  <li>Todas las conferencias</li>-->
-<!--                                  <li>Todos los talleres</li>-->
-<!--                                </ul>-->
-<!--                                <a href="#" class="button hollow">Comprar</a>-->
-<!--                            </div>-->
-<!--                      </li>-->
-<!--                  </ul>-->
-<!--            </div>-->
-<!--        </section>-->
 <section id="buy-tickets" class="section-with-bg">
     <div class="container" data-aos="fade-up">
         <div class="section-header">
@@ -248,40 +200,13 @@
         </div>
 
     </div>
-
 </section>
 <!--<div id="mapa" class="mapa"></div>-->
-<!--<div class="mapa">-->
-<!--    <iframe class="google-map" src="https://maps.google.com/maps?q=Pichincha%20%23334%20y%20Elizalde&t=m&z=18&output=embed&iwloc=near" width="100%" height="371.59" allowfullscreen="" loading="lazy"></iframe>-->
-<!--</div>-->
-<!--<div id="contenedor_principal">-->
-<!--    <div id="contenedor">-->
-<!--        <div id="divmap" class="col-lg-6 col-12">-->
-<!--            <iframe class="google-map"-->
-<!--                    src="https://maps.google.com/maps?q=Pichincha%20%23%20y%20Elizalde&t=m&z=18&output=embed&iwloc=near"-->
-<!--                    width="100%" height="371.59" allowfullscreen="" loading="lazy"></iframe>-->
-<!--        </div>-->
-<!--        <div id="divcontact">-->
-<!--            <i class="bi bi-geo-alt"></i>-->
-<!--            <h3>Dirección</h3>-->
-<!--            <address>Pichincha 334 y Elizalde-->
-<!--                Edificio El Comercio-->
-<!--                Piso 6 – Oficina 601 <br/>Guayaquil, Ecuador.-->
-<!--            </address>-->
-<!--            <i class="bi bi-phone"></i>-->
-<!--            <h3>Phone</h3>-->
-<!--            <p><a href="tel:(04) 232-8580">(04) 232-8580</a></p>-->
-<!--            <i class="bi bi-envelope"></i>-->
-<!--            <h3>Email</h3>-->
-<!--            <p><a href="mailto:solucionesit@xenturionit.com">solucionesit@xenturionit.com</a></p>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-<section class="venue section-padding" id="section_6" style="background: #273053; padding-bottom: 20px">
+<section class="venue section-padding" id="section_6" style="background: #f6f7fd; padding-bottom: 20px">
     <div class="container" data-aos="fade-up">
         <div class="row">
             <div class="col-lg-12 col-12">
-                <h2  style="color: white; margin-top: 10px;">Contactanos</h2>
+                <h2 style="color: #0E1B4D; margin-top: 10px;">Contactanos</h2>
             </div>
             <div class="col-lg-6 col-12">
                 <iframe style="border-radius: 30px;" class="google-map"
@@ -290,18 +215,18 @@
             </div>
 
             <div id="divcontact">
-                <i style="color: white;" class="bi bi-geo-alt"></i>
-                <h3 style="color: white;"><b>Dirección</b></h3>
-                <address style="color: white;">Pichincha 334 y Elizalde
+                <i style="color: #0E1B4D;" class="bi bi-geo-alt"></i>
+                <h3 style="color: #0E1B4D;"><b>Dirección</b></h3>
+                <address style="color: #0E1B4D;">Pichincha 334 y Elizalde
                     Edificio El Comercio
                     Piso 6 – Oficina 601 <br/>Guayaquil, Ecuador.
                 </address>
-                <i style="color: white;" class="bi bi-phone"></i>
-                <h3 style="color: white;"><b>Teléfono</b></h3>
-                <p><a style="color: white;" href="tel:(04) 232-8580">(04) 232-8580</a></p>
-                <i style="color: white;" class="bi bi-envelope"></i>
-                <h3 style="color: white;"><b>Email</b></h3>
-                <p><a  style="color: white;" href="mailto:solucionesit@xenturionit.com">solucionesit@xenturionit.com</a>
+                <i style="color: #0E1B4D;" class="bi bi-phone"></i>
+                <h3 style="color: #0E1B4D;"><b>Teléfono</b></h3>
+                <p><a style="color: #0E1B4D;" href="tel:(04) 232-8580">(04) 232-8580</a></p>
+                <i style="color: #0E1B4D;" class="bi bi-envelope"></i>
+                <h3 style="color: #0E1B4D;"><b>Email</b></h3>
+                <p><a style="color: #0E1B4D;" href="mailto:solucionesit@xenturionit.com">solucionesit@xenturionit.com</a>
                 </p>
 
             </div>

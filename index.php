@@ -28,7 +28,7 @@
                 <?php
                 try {
                     require_once('includes/funciones/bd_conexion.php');
-                    $sql = "SELECT * FROM `categoria_evento` ";
+                    $sql = "SELECT * FROM `categoria_evento` where estado_categoria = 1";
                     $resultado = $conn->query($sql);
                 } catch (Exception $e) {
                     $error = $e->getMessage();
@@ -46,30 +46,30 @@
                 <?php
                 try {
                     require_once('includes/funciones/bd_conexion.php');
-                    $sql = "SELECT `evento_id`, `nombre_evento`, `fecha_evento`, `hora_evento`, `cat_evento`, `nombre_invitado`, `apellido_invitado` ";
+                    $sql = "SELECT `evento_id`, `nombre_evento`, `fecha_evento`, `hora_evento`, `cat_evento`, `nombre_invitado`, `apellido_invitado`, `estado_evento` ";
                     $sql .= "FROM `eventos` ";
                     $sql .= "INNER JOIN `categoria_evento` ";
                     $sql .= "ON eventos.id_cat_evento=categoria_evento.id_categoria ";
                     $sql .= "INNER JOIN `invitados` ";
                     $sql .= "ON eventos.id_inv=invitados.invitado_id ";
                     $sql .= "AND eventos.id_cat_evento = 1 ";
-                    $sql .= "ORDER BY `evento_id` LIMIT 2;";
-                    $sql .= "SELECT `evento_id`, `nombre_evento`, `fecha_evento`, `hora_evento`, `cat_evento`, `nombre_invitado`, `apellido_invitado` ";
+                    $sql .= "WHERE estado_evento = 1  ORDER BY `evento_id` LIMIT 2;";
+                    $sql .= "SELECT `evento_id`, `nombre_evento`, `fecha_evento`, `hora_evento`, `cat_evento`, `nombre_invitado`, `apellido_invitado`,`estado_evento` ";
                     $sql .= "FROM `eventos` ";
                     $sql .= "INNER JOIN `categoria_evento` ";
                     $sql .= "ON eventos.id_cat_evento=categoria_evento.id_categoria ";
                     $sql .= "INNER JOIN `invitados` ";
                     $sql .= "ON eventos.id_inv=invitados.invitado_id ";
                     $sql .= "AND eventos.id_cat_evento = 2 ";
-                    $sql .= "ORDER BY `evento_id` LIMIT 2;";
-                    $sql .= "SELECT `evento_id`, `nombre_evento`, `fecha_evento`, `hora_evento`, `cat_evento`, `nombre_invitado`, `apellido_invitado` ";
+                    $sql .= "WHERE estado_evento = 1  ORDER BY `evento_id` LIMIT 2;";
+                    $sql .= "SELECT `evento_id`, `nombre_evento`, `fecha_evento`, `hora_evento`, `cat_evento`, `nombre_invitado`, `apellido_invitado`, `estado_evento` ";
                     $sql .= "FROM `eventos` ";
                     $sql .= "INNER JOIN `categoria_evento` ";
                     $sql .= "ON eventos.id_cat_evento=categoria_evento.id_categoria ";
                     $sql .= "INNER JOIN `invitados` ";
                     $sql .= "ON eventos.id_inv=invitados.invitado_id ";
                     $sql .= "AND eventos.id_cat_evento = 3 ";
-                    $sql .= "ORDER BY `evento_id` LIMIT 2;";
+                    $sql .= "WHERE estado_evento = 1 ORDER BY `evento_id` LIMIT 2;";
                 } catch (Exception $e) {
                     $error = $e->getMessage();
                 }

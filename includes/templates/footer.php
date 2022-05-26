@@ -115,6 +115,8 @@
       echo '<script src="js/lightbox.js"></script>';
       echo '<script src="js/glightbox.min.js"></script>';
       echo '<script src="js/swiper-bundle.min.js"></script>';
+    } else if($pagina == 'contacto') {
+        echo '<script src="https://www.google.com/recaptcha/api.js?hl=es" async defer></script>';
     }
 ?>
 <script src="js/main.js"></script>

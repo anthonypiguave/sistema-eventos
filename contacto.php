@@ -33,6 +33,7 @@
 
                     <form action="send_email.php" method="post">
                         <?php
+                        require_once "ReCAPTCHA/php/recaptchalib.php";
                         $Msg = "";
                         if (isset($_GET['error'])) {
                             $Msg = " Porfavor complete todos los campos";
@@ -42,6 +43,12 @@
                         if (isset($_GET['success'])) {
                             $Msg = " Tu mensaje fue enviado correctamente ";
                             echo '<div style="margin-left: 35px; margin-right: 35px;" class="alert alert-success">' . $Msg . '</div>';
+                        }
+
+                        $Msg = "";
+                        if (isset($_GET['error_recaptcha'])) {
+                            $Msg = " Porfavor complete el recaptcha";
+                            echo '<div style="margin-left: 35px; margin-right: 35px;" class="alert alert-danger">' . $Msg . '</div>';
                         }
 
                         ?>
@@ -72,6 +79,7 @@
                             <span>Mensaje</span>
                         </div>
                         <button class="btn btn-success" type="submit" name="sendmail">ENVIAR</button>
+                        <div style="padding-top: 20px" class="g-recaptcha" data-sitekey="6LerQR0gAAAAAJ2h2WIu7aHkLdvsAXB2RGqxsJ9t"></div>
                     </form>
                 </div>
             </div>

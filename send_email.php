@@ -2,21 +2,43 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-if (isset($_POST['sendmail'])) {
-    $UserName = $_POST['name'];
-    $Email = $_POST['email'];
-    $Subject = $_POST['subject'];
-    $Msg = $_POST['message'];
-    $Tel = $_POST['phone'];
+require_once "ReCAPTCHA/php/recaptchalib.php";
+
+$secret = "6LerQR0gAAAAAKdkbEFPCvmzMzFeOk4DnO5oIaZg";
+$response = null;
+// Verificamos la clave secreta
+$reCaptcha = new ReCaptcha($secret);
+if ($_POST["g-recaptcha-response"]) {
+    $response = $reCaptcha->verifyResponse(
+        $_SERVER["REMOTE_ADDR"],
+        $_POST["g-recaptcha-response"]
+    );
+}
+
+if ($response != null && $response->success) {
+// Añade aquí el código que desees en el caso de que la validación sea correcta
+
+    if (isset($_POST['sendmail'])) {
+        $UserName = $_POST['name'];
+        $Email = $_POST['email'];
+        $Subject = $_POST['subject'];
+        $Msg = $_POST['message'];
+        $Tel = $_POST['phone'];
 
 
-    if (empty($UserName) || empty($Email) || empty($Subject) || empty($Msg) || empty($Tel)) {
-        header('location:contacto.php?error');
+        if (empty($UserName) || empty($Email) || empty($Subject) || empty($Msg) || empty($Tel)) {
+            header('location:contacto.php?error');
+        } else {
+            sendmail($Subject, $Msg, $UserName, $Email, $Tel);
+        }
     } else {
-        sendmail($Subject, $Msg, $UserName, $Email, $Tel);
+        header("location:index.php");
     }
+
+
 } else {
-    header("location:index.php");
+// Añade aquí el código que desees en el caso de que la validación no sea correcta o muestra
+    header("location:contacto.php?error_recaptcha");
 }
 
 function sendmail(string $subject_input, string $message_input, string $name_input, string $email_input, string $tel_input)

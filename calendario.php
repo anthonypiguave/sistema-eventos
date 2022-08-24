@@ -17,7 +17,7 @@
             $sql .= " ON eventos.id_cat_evento = categoria_evento.id_categoria ";
             $sql .= " INNER JOIN invitados ";
             $sql .= " ON eventos.id_inv = invitados.invitado_id  AND eventos.estado_evento = 1 ";
-            $sql .= " ORDER BY evento_id ";
+            $sql .= " ORDER BY fecha_evento DESC ";
             $resultado = $conn->query($sql);
         } catch (\Exception $e) {
             echo $e->getMessage();

@@ -206,7 +206,7 @@
     <div class="container" data-aos="fade-up">
         <div class="row">
             <div class="col-lg-12 col-12">
-                <h2 style="color: #0E1B4D; margin-top: 10px;">Contactanos</h2>
+                <h2 style="color: #0E1B4D; margin-top: 10px;">Contáctanos</h2>
             </div>
             <div class="col-lg-6 col-12">
                 <iframe style="border-radius: 30px;" class="google-map"

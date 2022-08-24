@@ -16,10 +16,10 @@
 	ob_start();
 ?>
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="es">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="Content-Type" content="text/html"/>
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Xenturion |
             <?php

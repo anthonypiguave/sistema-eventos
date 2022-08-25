@@ -261,44 +261,67 @@
 
 <section id="subscribe">
     <div class="container" data-aos="zoom-in">
-        <div class="section-header">
-            <h2>Newsletter</h2>
-            <p>Suscribete a nuestro Newsletter, mantente informado y no te pierdas de nada.</p>
+        <h2  style="color: white;">Faltan</h2>
+        <div class="cuenta-regresiva contenedor" data-aos="fade-up">
+            <ul class="clearfix">
+                <li style="color: white;"><p id="dias" class="numero_contador"></p> días </li>
+                <li style="color: white;"><p id="horas" class="numero_contador"></p> horas</li>
+                <li style="color: white;"><p id="minutos" class="numero_contador"></p> minutos</li>
+                <li style="color: white;"><p id="segundos" class="numero_contador"></p> segundos</li>
+            </ul>
         </div>
+        <?php
+        $conn = new mysqli('localhost', 'root', '', 'xenturionit_respaldo');
+        if ($conn->connect_error) {
+            echo $error->$conn->connect_error;
+        }
+        $sql = "SELECT * FROM eventos  WHERE estado_evento = 1 ORDER BY CONCAT(fecha_evento, ' ', hora_evento) DESC LIMIT 1";
 
-        <form method="POST" action="#">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 col-md-10 d-flex">
-                    <input type="text" class="form-control" placeholder="Enter your Email">
-                    <button type="submit" class="ms-2">Subscribe</button>
-                </div>
-            </div>
-        </form>
+        $result = $conn->query($sql);
+        while ($row = $result->fetch_assoc()) { ?>
+            <h3 id="contador" style="display: none"><?php echo str_replace("-", "/", $row['fecha_evento']); ?></h3>
+        <?php } ?>
+
+
+        <!--        <div class="section-header">-->
+        <!--            <h2>Newsletter</h2>-->
+        <!--            <p>Suscribete a nuestro Newsletter, mantente informado y no te pierdas de nada.</p>-->
+        <!--        </div>-->
+
+        <!--        <form method="POST" action="#">-->
+        <!--            <div class="row justify-content-center">-->
+        <!--                <div class="col-lg-6 col-md-10 d-flex">-->
+        <!--                    <input type="text" class="form-control" placeholder="Enter your Email">-->
+        <!--                    <button type="submit" class="ms-2">Subscribe</button>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </form>-->
 
     </div>
 </section>
+<!---->
+<!--<section class="seccion">-->
+<!--    <h2>Faltan</h2>-->
+<!--    <div class="cuenta-regresiva contenedor" data-aos="fade-up">-->
+<!--        <ul class="clearfix">-->
+<!--            <li><p id="dias" class="numero_contador"></p> días</li>-->
+<!--            <li><p id="horas" class="numero_contador"></p> horas</li>-->
+<!--            <li><p id="minutos" class="numero_contador"></p> minutos</li>-->
+<!--            <li><p id="segundos" class="numero_contador"></p> segundos</li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--    --><?php
+//    $conn = new mysqli('localhost', 'root', '', 'xenturionit_respaldo');
+//    if ($conn->connect_error) {
+//        echo $error->$conn->connect_error;
+//    }
+//    $sql = "SELECT * FROM eventos  WHERE estado_evento = 1 ORDER BY CONCAT(fecha_evento, ' ', hora_evento) DESC LIMIT 1";
+//
+//    $result = $conn->query($sql);
+//    while ($row = $result->fetch_assoc()) { ?>
+<!--        <h3 id="contador" style="display: none">--><?php //echo str_replace("-", "/", $row['fecha_evento']); ?><!--</h3>-->
+<!--    --><?php //} ?>
+<!---->
+<!--</section>-->
 
-<section class="seccion">
-    <h2>Faltan</h2>
-    <div class="cuenta-regresiva contenedor" data-aos="fade-up">
-        <ul class="clearfix">
-            <li><p id="dias" class="numero_contador"></p> días</li>
-            <li><p id="horas" class="numero_contador"></p> horas</li>
-            <li><p id="minutos" class="numero_contador"></p> minutos</li>
-            <li><p id="segundos" class="numero_contador"></p> segundos</li>
-        </ul>
-    </div>
-    <?php
-    $conn = new mysqli('localhost', 'root', '', 'xenturionit_respaldo');
-    if ($conn->connect_error) {
-        echo $error->$conn->connect_error;
-    }
-    $sql = "SELECT * FROM eventos  WHERE estado_evento = 1 ORDER BY CONCAT(fecha_evento, ' ', hora_evento) DESC LIMIT 1";
-
-    $result = $conn->query($sql);
-    while ($row = $result->fetch_assoc()) { ?>
-        <h3 id="contador" style="display: none"><?php echo str_replace("-", "/", $row['fecha_evento']); ?></h3>
-    <?php } ?>
-
-</section>
 <?php include_once 'includes/templates/footer.php'; ?>

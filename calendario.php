@@ -11,13 +11,14 @@
 
         try {
             require_once('includes/funciones/bd_conexion.php');
+            $Datecurrent = date('Y-m-d', time());
             $sql = " SELECT evento_id, nombre_evento, fecha_evento, hora_evento, cat_evento, icono, nombre_invitado, apellido_invitado, url_imagen ";
             $sql .= " FROM eventos ";
             $sql .= " INNER JOIN categoria_evento ";
             $sql .= " ON eventos.id_cat_evento = categoria_evento.id_categoria ";
             $sql .= " INNER JOIN invitados ";
-            $sql .= " ON eventos.id_inv = invitados.invitado_id  AND eventos.estado_evento = 1 ";
-            $sql .= " ORDER BY fecha_evento DESC ";
+            $sql .= " ON eventos.id_inv = invitados.invitado_id  AND eventos.estado_evento = 1 AND fecha_evento > '$Datecurrent'";
+            $sql .= " ORDER BY fecha_evento DESC";
             $resultado = $conn->query($sql);
         } catch (\Exception $e) {
             echo $e->getMessage();
@@ -56,8 +57,8 @@
                                 setlocale(LC_TIME, 'es_ES.UTF-8');
                                 // Windows
                                 setlocale(LC_TIME, 'spanish');
-                                echo strftime("%A, %d de %B del %Y", strtotime($dia)); ?>
-
+                                $date_event = utf8_encode(strftime("%A, %d de %B del %Y", strtotime($dia)));
+                                echo $date_event;?>
                             </a>
                         </li>
                     </ul>

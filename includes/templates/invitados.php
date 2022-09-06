@@ -20,20 +20,20 @@ try {
                     <div class="speaker" data-aos="fade-up" data-aos-delay="100">
                         <img src="img/invitados/<?php echo $invitados['url_imagen'] ?>" alt="<?php echo $invitados['nombre_invitado'] ?>" class="img-fluid">
                         <div class="details">
-                            <h3><a href="speaker-details.html"><?php echo $invitados['nombre_invitado'] . " " . $invitados['apellido_invitado'] ?></a></h3>
+                            <h3><a><?php echo $invitados['nombre_invitado'] . " " . $invitados['apellido_invitado'] ?></a></h3>
 <!--                            <p>Quas alias incidunt</p>-->
                             <p></p>
                             <div class="social">
                                 <?php if(($invitados['url_facebook'])){?>
-                                    <a href="<?php echo $invitados['url_facebook'];?>"><i class="bi bi-facebook"></i></a>
+                                    <a href="<?php echo $invitados['url_facebook'];?>" target="_blank""><i class="bi bi-facebook"></i></a>
                                 <?php }?>
 
                                 <?php if(($invitados['url_twitter'])){?>
-                                    <a href="<?php echo $invitados['url_twitter'];?>"><i class="bi bi-twitter"></i></a>
+                                    <a href="<?php echo $invitados['url_twitter'];?>" target="_blank"><i class="bi bi-twitter"></i></a>
                                 <?php }?>
 
                                 <?php if(($invitados['url_instagram'])){?>
-                                    <a href="<?php echo $invitados['url_instagram'];?>"><i class="bi bi-instagram"></i></a>
+                                    <a href="<?php echo $invitados['url_instagram'];?>" target="_blank"><i class="bi bi-instagram"></i></a>
                                 <?php }?>
                             </div>
                         </div>

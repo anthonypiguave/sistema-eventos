@@ -24,7 +24,7 @@
                   <ul class="lista-precios clearfix">
                       <li>
                             <div class="tabla-precio">
-                                <h3>Pase por día (viernes)</h3>
+                                <h3>Pase por día</h3>
                                 <p class="numero">$30</p>
                                 <ul class="fa-ul">
                                     <li><span><i class="fa fa-check"></i></span>Asientos regulares</li>
@@ -59,7 +59,7 @@
 
                       <li>
                             <div class="tabla-precio">
-                                <h3>Pase por 2 días (viernes y sábado)</h3>
+                                <h3>Pase por 2 días</h3>
                                 <p class="numero">$45</p>
                                 <ul class="fa-ul">
                                     <li><span><i class="fa fa-check"></i></span>Asientos regulares</li>

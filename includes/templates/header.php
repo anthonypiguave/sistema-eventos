@@ -21,7 +21,7 @@
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html"/>
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Xenturion |
+        <title>XITAcademy |
             <?php
             if ($pagina == 'index'){
                 echo ucwords(strtolower('inicio'));
@@ -61,22 +61,19 @@
 
     </head>
     <body class="<?php echo $pagina; ?>">
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
         <section id="hero">
             <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
-                <h1 class="mb-4 pb-0">XENTURION IT<br><span>Design</span> Conference</h1>
+                <h1 class="mb-4 pb-0"><span>XIT</span> ACADEMY</h1>
                 <p class="mb-4 pb-0"><?php $fechaActual = date('d-M-Y'); echo $fechaActual;?>, Guayaquil, Ecuador</p>
-                <a href="https://www.youtube.com/watch?v=iXcY5MgAi_0" class="glightbox play-btn mb-4"></a>
-                <a href="calendario.php" class="about-btn scrollto">Acerca del Evento</a>
+                <a href="https://www.youtube.com/watch?v=iXcY5MgAi_0" target="_blank" class="glightbox play-btn mb-4"></a>
+                <a href="contacto.php" class="about-btn scrollto">Contáctanos</a>
             </div>
         </section>
         <header id="header" class="d-flex align-items-center ">
             <div class="container-fluid container-xxl d-flex align-items-center">
                 <div id="logo" class="me-auto">
                     <!-- Uncomment below if you prefer to use a text logo -->
-                     <h1><a href="index.php">Xenturion<span>IT</span></a></h1>
+                     <h1><a href="index.php">XIT<span>ACADEMY</span></a></h1>
 <!--                    <a href="index.php" class="scrollto">-->
 <!--                        <img src="../../img/logo.png" alt="" title="">-->
 <!--                    </a>-->
@@ -88,7 +85,7 @@
                         <li><a class="nav-link scrollto" href="calendario.php">Calendario</a></li>
                         <li><a class="nav-link scrollto" href="invitados.php">Invitados</a></li>
                         <li><a class="nav-link scrollto" href="registro.php">Reservaciones</a></li>
-                        <li><a class="nav-link scrollto" href="contacto.php">Contact</a></li>
+                        <li><a class="nav-link scrollto" href="contacto.php">Contacto</a></li>
                     </ul>
                     <i class="bi bi-list mobile-nav-toggle"></i>
                 </nav><!-- .navbar -->

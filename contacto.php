@@ -52,29 +52,29 @@
                         }
 
                         ?>
-                        <h3 class="title">Contact us</h3>
+                        <h3 class="title">Contactanos</h3>
                         <div class="input-container_contact">
-                            <input type="text" name="name" class="input"/>
+                            <input type="text" name="name" class="input" required/>
                             <label for="">Nombre</label>
                             <span>Nombre</span>
                         </div>
                         <div class="input-container_contact">
-                            <input type="email" name="email" class="input"/>
+                            <input type="email" name="email" class="input" required/>
                             <label for="">Email</label>
                             <span>Email</span>
                         </div>
                         <div class="input-container_contact">
-                            <input type="text" name="phone" class="input"/>
+                            <input type="text" name="phone" class="input" required/>
                             <label for="">Teléfono</label>
                             <span>Teléfono</span>
                         </div>
                         <div class="input-container_contact">
-                            <input type="text" name="subject" class="input"/>
+                            <input type="text" name="subject" class="input" required/>
                             <label for="">Asunto</label>
                             <span>Asunto</span>
                         </div>
                         <div class="input-container_contact textarea">
-                            <textarea name="message" class="input"></textarea>
+                            <textarea name="message" class="input" required></textarea>
                             <label for="">Mensaje</label>
                             <span>Mensaje</span>
                         </div>

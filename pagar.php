@@ -44,7 +44,7 @@ if ($formapago == 'transfer') {
 
         try {
             require_once('includes/funciones/bd_conexion.php');
-            $stmt = $conn->prepare("INSERT INTO registrados (nombre_registrado, apellido_registrado, email_registrado, fecha_registro, pases_articulos, talleres_registrados, regalo, total_pagado, forma_pago) VALUES (?,?,?,?,?,?,?,?,?)");
+            $stmt = $conn->prepare("INSERT INTO registrados (nombre_registrado, apellido_registrado, email_registrado, fecha_registro, pases_articulos, talleres_registrados, regalo, total_pagado, forma_pago, estado_registrado) VALUES (?,?,?,?,?,?,?,?,?,1)");
             $stmt->bind_param("ssssssiss", $nombre, $apellido, $email, $fecha, $pedido, $registro, $regalo, $total, $fpago);
             $stmt->execute();
             $ID_registro = $stmt->insert_id;
@@ -89,7 +89,7 @@ if ($formapago == 'transfer') {
 
         try {
             require_once('includes/funciones/bd_conexion.php');
-            $stmt = $conn->prepare("INSERT INTO registrados (nombre_registrado, apellido_registrado, email_registrado, fecha_registro, pases_articulos, talleres_registrados, regalo, total_pagado, forma_pago) VALUES (?,?,?,?,?,?,?,?,?)");
+            $stmt = $conn->prepare("INSERT INTO registrados (nombre_registrado, apellido_registrado, email_registrado, fecha_registro, pases_articulos, talleres_registrados, regalo, total_pagado, forma_pago, estado_registrado) VALUES (?,?,?,?,?,?,?,?,?,1)");
             $stmt->bind_param("ssssssiss", $nombre, $apellido, $email, $fecha, $pedido, $registro, $regalo, $total, $fpago);
             $stmt->execute();
             $ID_registro = $stmt->insert_id;

@@ -1,7 +1,7 @@
 <?php include_once 'includes/templates/header.php'; ?>
 
 <section class="seccion contenedor">
-    <h2>La mejor conferencia de diseño web en español</h2>
+    <h2><span>XIT</span> ACADEMY</h2>
     <p style="text-align: justify;">
         XenturionIT está conformado por un equipo de profesionales especializados en diferentes campos de TI cuyo
         propósito es generar valor agregado a nuestros socios estratégicos poniendo a su disposición toda la experiencia
@@ -201,7 +201,7 @@
 
     </div>
 </section>
-<!--<div id="mapa" class="mapa"></div>-->
+
 <section class="venue section-padding" id="section_6" style="background: #f6f7fd; padding-bottom: 20px">
     <div class="container" data-aos="fade-up">
         <div class="row">
@@ -235,30 +235,6 @@
     </div>
 </section>
 
-<!--<section id="faq">-->
-<!--    <div class="container" data-aos="fade-up">-->
-<!--        <div class="section-header">-->
-<!--            <h2>F.A.Q </h2>-->
-<!--        </div>-->
-<!--        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">-->
-<!--            <div class="col-lg-9">-->
-<!--                <ul class="faq-list">-->
-<!--                    <li>-->
-<!--                        <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">Non consectetur a erat nam at lectus urna duis? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>-->
-<!--                        <div id="faq1" class="collapse" data-bs-parent=".faq-list">-->
-<!--                            <p>-->
-<!--                                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!--                    </li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--        </div>-->
-<!---->
-<!--    </div>-->
-<!---->
-<!--</section>-->
-
 <section id="subscribe">
     <div class="container" data-aos="zoom-in">
         <h2  style="color: white;">Faltan</h2>
@@ -281,47 +257,7 @@
         while ($row = $result->fetch_assoc()) { ?>
             <h3 id="contador" style="display: none"><?php echo str_replace("-", "/", $row['fecha_evento']); ?></h3>
         <?php } ?>
-
-
-        <!--        <div class="section-header">-->
-        <!--            <h2>Newsletter</h2>-->
-        <!--            <p>Suscribete a nuestro Newsletter, mantente informado y no te pierdas de nada.</p>-->
-        <!--        </div>-->
-
-        <!--        <form method="POST" action="#">-->
-        <!--            <div class="row justify-content-center">-->
-        <!--                <div class="col-lg-6 col-md-10 d-flex">-->
-        <!--                    <input type="text" class="form-control" placeholder="Enter your Email">-->
-        <!--                    <button type="submit" class="ms-2">Subscribe</button>-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        </form>-->
-
     </div>
 </section>
-<!---->
-<!--<section class="seccion">-->
-<!--    <h2>Faltan</h2>-->
-<!--    <div class="cuenta-regresiva contenedor" data-aos="fade-up">-->
-<!--        <ul class="clearfix">-->
-<!--            <li><p id="dias" class="numero_contador"></p> días</li>-->
-<!--            <li><p id="horas" class="numero_contador"></p> horas</li>-->
-<!--            <li><p id="minutos" class="numero_contador"></p> minutos</li>-->
-<!--            <li><p id="segundos" class="numero_contador"></p> segundos</li>-->
-<!--        </ul>-->
-<!--    </div>-->
-<!--    --><?php
-//    $conn = new mysqli('localhost', 'root', '', 'xenturionit_respaldo');
-//    if ($conn->connect_error) {
-//        echo $error->$conn->connect_error;
-//    }
-//    $sql = "SELECT * FROM eventos  WHERE estado_evento = 1 ORDER BY CONCAT(fecha_evento, ' ', hora_evento) DESC LIMIT 1";
-//
-//    $result = $conn->query($sql);
-//    while ($row = $result->fetch_assoc()) { ?>
-<!--        <h3 id="contador" style="display: none">--><?php //echo str_replace("-", "/", $row['fecha_evento']); ?><!--</h3>-->
-<!--    --><?php //} ?>
-<!---->
-<!--</section>-->
 
 <?php include_once 'includes/templates/footer.php'; ?>

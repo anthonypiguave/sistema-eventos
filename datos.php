@@ -81,11 +81,9 @@ include_once 'includes/templates/header.php';
             - Efectivo<br/>
             - Depósitos<br/>
             - Transferencias<br/>
-            - Paypal<br/>
-            <!--            - Se aceptan pagos con Tarjeta de crédito con un recargo del 6%, mediante PayPhone-->
             <br/>
             <strong>2. Envio del comprobante:</strong><br/>
-            Nos ayuda enviando el comprobante al 0978873600 o al correo: solucionesit@xenturionit.com<br/><br/>
+            Nos ayuda enviando el comprobante al whatsapp 0978873600 o al correo: solucionesit@xenturionit.com<br/><br/>
 
             <strong>3. Una vez confirmado el pago se procederá con la validación de su registro.</strong><br/>
 
@@ -137,7 +135,7 @@ include_once 'includes/templates/header.php';
 
             </tbody>
         </table><br/>
-        <strong>Nuestro Horario de atención:</strong> Lunes a Viernes de 09:00 a 18:00 Cualquier duda Contáctanos al 0999999999<br/>
+        <strong>Nuestro Horario de atención:</strong> Lunes a Viernes de 09:00 a 18:00 Cualquier duda Contáctanos al  (04) 232-8580<br/>
         Puede visitarnos con total confianza en Pichincha 334 y Elizalde Edificio El Comercio Piso 6 – Oficina 601
 
     </div>

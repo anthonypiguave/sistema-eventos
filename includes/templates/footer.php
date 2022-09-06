@@ -56,7 +56,7 @@
                 <div class="col-lg-3 col-md-8 footer-links">
                     <h4>Links</h4>
                     <ul>
-                        <li><i class="bi bi-chevron-right"></i> <a href="index.php">Home</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="index.php">Inicio</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a href="calendario.php">Calendario</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a href="invitados.php">Invitados</a></li>
                         <li><i class="bi bi-chevron-right"></i> <a href="registro.php">Reservaciones</a></li>
@@ -72,7 +72,7 @@
                         Piso 6 – Oficina 601
                         <br>
                         Guayaquil, Ecuador<br>
-                        <strong>Phone:</strong> (04) 232-8580<br>
+                        <strong>Teléfono:</strong> (04) 232-8580<br>
                         <strong>Email:</strong> solucionesit@xenturionit.com<br>
                     </p>
 

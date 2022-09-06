@@ -171,7 +171,7 @@
                                             <option value="">- Seleccione un regalo --</option>
                                             <option value="2">Etiquetas</option>
                                             <option value="1">Pulsera</option>
-                                            <option value="3">Plumas</option>
+                                            <option value="3">Bolígrafos</option>
                                         </select>
                                     </div><!--.orden-->
                                   <div class="orden">

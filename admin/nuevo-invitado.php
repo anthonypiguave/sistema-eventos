@@ -50,8 +50,8 @@
                                                 <input type="text" class="form-control" id="url_twitter" name="url_twitter" placeholder="Ingrese el link de Twitter">
                                             </div>
                                             <div class="form-group">
-                                                <label for="url_facebook">Facebook: </label>
-                                                <input type="text" class="form-control" id="url_facebook" name="url_facebook" placeholder="Ingrese el link de Facebook">
+                                                <label for="url_linkedin">Linkedin: </label>
+                                                <input type="text" class="form-control" id="url_linkedin" name="url_linkedin" placeholder="Ingrese el link de Linkedin">
                                             </div>
                                             <div class="form-group">
                                                 <label for="url_instagram">Instagram: </label>

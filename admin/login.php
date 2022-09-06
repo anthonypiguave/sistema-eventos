@@ -11,7 +11,7 @@
 
       <div class="login-logo">
             <a href="../index.php">
-                <b>XenturionIT</b>
+                <b>XITAcademy</b>
                 Login
             </a>
       </div>
@@ -22,11 +22,11 @@
 
             <form id="login" method="post" action="login-admin.php">
                   <div class="form-group has-feedback">
-                    <input type="text" name="usuario" class="form-control" placeholder="Login">
+                    <input type="text" name="usuario" class="form-control" placeholder="Usuario">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                   </div>
                   <div class="form-group has-feedback">
-                    <input type="password" name="password" class="form-control" placeholder="Password">
+                    <input type="password" name="password" class="form-control" placeholder="Contraseña">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                   </div>
                   <div class="row">

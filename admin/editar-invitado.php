@@ -57,8 +57,8 @@
                                                 <input type="text" class="form-control" id="apellido_invitado" name="apellido_invitado" placeholder="Apellido" value="<?php echo $invitado['apellido_invitado']; ?>">
                                             </div>
                                             <div class="form-group">
-                                                <label for="url_facebook">Facebook: </label>
-                                                <input type="text" class="form-control" id="url_facebook" name="url_facebook" placeholder="Facebook" value="<?php echo $invitado['url_facebook']; ?>">
+                                                <label for="url_linkedin">Linkedin: </label>
+                                                <input type="text" class="form-control" id="url_linkedin" name="url_linkedin" placeholder="Linkedin" value="<?php echo $invitado['url_linkedin']; ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="url_twitter">Twitter: </label>

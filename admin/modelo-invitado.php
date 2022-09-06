@@ -15,8 +15,8 @@ if(isset($_POST['id_registro'])){
 if(isset($_POST['url_twitter'])){
     $url_twitter =$_POST['url_twitter'];
 }
-if(isset($_POST['url_facebook'])){
-    $url_facebook =$_POST['url_facebook'];
+if(isset($_POST['url_linkedin'])){
+    $url_linkedin =$_POST['url_linkedin'];
 }
 if(isset($_POST['url_instagram'])){
     $url_instagram =$_POST['url_instagram'];
@@ -50,8 +50,8 @@ if($_POST['registro'] == 'nuevo') {
     }
 
     try {
-        $stmt = $conn->prepare("INSERT INTO invitados (nombre_invitado, apellido_invitado, descripcion, url_imagen, url_facebook, url_twitter, url_instagram, estado_invitado ) VALUES (?,?,?,?,?,?,?, 1)");
-        $stmt->bind_param("sssssss", $nombre, $apellido, $biografia, $imagen_url, $url_facebook, $url_twitter, $url_instagram);
+        $stmt = $conn->prepare("INSERT INTO invitados (nombre_invitado, apellido_invitado, descripcion, url_imagen, url_linkedin, url_twitter, url_instagram, estado_invitado ) VALUES (?,?,?,?,?,?,?, 1)");
+        $stmt->bind_param("sssssss", $nombre, $apellido, $biografia, $imagen_url, $url_linkedin, $url_twitter, $url_instagram);
         $stmt->execute();
         // $stmt->error
         if($stmt->affected_rows) {
@@ -103,12 +103,12 @@ if($_POST['registro'] == 'actualizar') {
 
         if($_FILES['archivo_imagen']['size'] > 0){
             // con imagen
-            $stmt = $conn->prepare("UPDATE invitados SET nombre_invitado = ?, apellido_invitado = ?, descripcion = ?, url_imagen = ?, editado = NOW(), url_facebook = ?, url_twitter = ?, url_instagram = ?, estado_invitado = ? WHERE invitado_id = ? ");
-            $stmt->bind_param("sssssssii", $nombre, $apellido, $biografia, $imagen_url, $url_facebook, $url_twitter, $url_instagram, $estado, $id_registro);
+            $stmt = $conn->prepare("UPDATE invitados SET nombre_invitado = ?, apellido_invitado = ?, descripcion = ?, url_imagen = ?, editado = NOW(), url_linkedin = ?, url_twitter = ?, url_instagram = ?, estado_invitado = ? WHERE invitado_id = ? ");
+            $stmt->bind_param("sssssssii", $nombre, $apellido, $biografia, $imagen_url, $url_linkedin, $url_twitter, $url_instagram, $estado, $id_registro);
         } else {
             // sin imagen
-            $stmt = $conn->prepare("UPDATE invitados SET nombre_invitado = ?, apellido_invitado = ?, descripcion = ?, editado = NOW(),  url_facebook = ?, url_twitter = ?, url_instagram = ?, estado_invitado = ?  WHERE invitado_id = ? ");
-            $stmt->bind_param("ssssssii", $nombre, $apellido, $biografia,  $url_facebook, $url_twitter, $url_instagram, $estado, $id_registro);
+            $stmt = $conn->prepare("UPDATE invitados SET nombre_invitado = ?, apellido_invitado = ?, descripcion = ?, editado = NOW(),  url_linkedin = ?, url_twitter = ?, url_instagram = ?, estado_invitado = ?  WHERE invitado_id = ? ");
+            $stmt->bind_param("ssssssii", $nombre, $apellido, $biografia,  $url_linkedin, $url_twitter, $url_instagram, $estado, $id_registro);
         }
         $stmt->execute();
         $rows = $stmt->affected_rows;

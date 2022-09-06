@@ -24,8 +24,8 @@ try {
 <!--                            <p>Quas alias incidunt</p>-->
                             <p></p>
                             <div class="social">
-                                <?php if(($invitados['url_facebook'])){?>
-                                    <a href="<?php echo $invitados['url_facebook'];?>" target="_blank""><i class="bi bi-facebook"></i></a>
+                                <?php if(($invitados['url_linkedin'])){?>
+                                    <a href="<?php echo $invitados['url_linkedin'];?>" target="_blank""><i class="bi bi-linkedin"></i></a>
                                 <?php }?>
 
                                 <?php if(($invitados['url_twitter'])){?>

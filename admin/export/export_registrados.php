@@ -65,29 +65,26 @@ $i =1;
 
             <td>
                 <?php
-                    //Decodifica de json a un array. Primero lo covierte a un objeto, si le pasas true lo convierte en un array.
-                    $articulos = json_decode($registrado['pases_articulos'], true);
-
-                    //Hacemos un arreglo con las llaves del array decodificado pero que se vea y se lea fácilmente.
-                    $arreglo_articulos = array(
-                        'un_dia' => 'Pase 1 día',
-                        'pase_dosdias' => 'Pase 2 días',
-                        'pase_completo' => 'Pase completo',
-                        'camisas' => 'Camisas',
-                        'etiquetas' => 'Etiquetas'
-                    );
-
-                    //Recorremos el json decodificado.
-                    foreach($articulos as $key => $articulo){
-                        //como en la base de datos algunos tiene el campo cantidad. Validaremos con PHP.
-                        if(array_key_exists('cantidad', $arreglo_articulos)){ //pasamos la llave a revisar y dónde queremos revisar.
-                            echo "<b>" . $articulo['cantidad'] . "</b>" . " " .$arreglo_articulos[$key] . "<br>";
-                        }else {
-                            echo "<b>" . $articulo . "</b>" . " " .$arreglo_articulos[$key] . "<br>";
+                $articulos = json_decode($registrado['pases_articulos'], true);
+                $arreglo_articulos = array(
+                    'un_dia' => 'Pase 1 día',
+                    'pase_2dias' => 'Pase 2 días',
+                    'pase_completo' => 'Pase 3 días',
+                    'camisas' => 'Camisas',
+                    'etiquetas' => 'Etiquetas'
+                );
+                foreach ($articulos as $llave => $articulo) {
+                    if (is_array($articulo) && array_key_exists('cantidad', $articulo)) {
+                        if ($articulo['cantidad'] >= 1) {
+                            echo "<b>" . $articulo['cantidad'] . "</b>" . "<b>" . " " . $arreglo_articulos[$llave] . "</b>" . "<br>";
+//                                                echo  . " " .  $arreglo_articulos[$llave] . "<br>";
                         }
+                    } else {
+                        echo $articulo . " " . $arreglo_articulos[$llave] . "<br>";
                     }
+                }
                 ?>
-                </td>
+            </td>
                 <td>
                     <?php
                         $eventos_resultado = $registrado['talleres_registrados']; //Recibe todos los talleres en json

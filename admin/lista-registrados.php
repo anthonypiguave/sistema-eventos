@@ -43,7 +43,7 @@ include_once 'templates/header.php'; ?>
                                     <th>Nombre</th>
                                     <th>Fecha Registro</th>
                                     <th>Articulos</th>
-                                    <th>Talleres</th>
+                                    <th>Eventos</th>
                                     <th>Regalo</th>
                                     <th>Compra</th>
                                     <th>Estado</th>
@@ -160,7 +160,7 @@ include_once 'templates/header.php'; ?>
                                     <th>Nombre</th>
                                     <th>Fecha Registro</th>
                                     <th>Articulos</th>
-                                    <th>Talleres</th>
+                                    <th>Eventos</th>
                                     <th>Regalo</th>
                                     <th>Compra</th>
                                     <th>Estado</th>

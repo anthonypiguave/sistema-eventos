@@ -4,7 +4,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 require_once "ReCAPTCHA/php/recaptchalib.php";
 
-$secret = "6LerQR0gAAAAAKdkbEFPCvmzMzFeOk4DnO5oIaZg";
+$secret = "6LcrRtshAAAAACWOU67QiV3HwaWRW-x5JencITUZ";
 $response = null;
 // Verificamos la clave secreta
 $reCaptcha = new ReCaptcha($secret);
@@ -43,11 +43,12 @@ if ($response != null && $response->success) {
 
 function sendmail(string $subject_input, string $message_input, string $name_input, string $email_input, string $tel_input)
 {
-    $name = 'CONTACT US';  //
-    $to = "anthonypiguave98@gmail.com";  // REEMPLAZAR DATOS POR CORREO OFICIAL
+    $name = 'CONTÁCTANOS';  //
+    $pass = 'Pa$$w0rd.2022';
+    $to = "info@xitacademy.xenturionit.com";  // REEMPLAZAR DATOS POR CORREO OFICIAL
     $subject = $subject_input;
-    $from = "anthonypiguave98@gmail.com"; // REEMPLAZAR DATOS POR CORREO OFICIAL
-    $password = "nkimmxiuuybktcbh"; // REEMPLAZAR DATOS POR CORREO OFICIAL
+    $from = "info@xitacademy.xenturionit.com"; // REEMPLAZAR DATOS POR CORREO OFICIAL
+    $password = $pass; // REEMPLAZAR DATOS POR CORREO OFICIAL
     $MessageComplete = nl2br(" <b> Nombre: </b> $name_input  <b> \n Email: </b> $email_input \n <b> Asunto: </b>$subject_input \n <b> Mensaje: </b> $message_input \n <b> Teléfono: </b>$tel_input \n");
     $body = $MessageComplete;
 
@@ -64,11 +65,11 @@ function sendmail(string $subject_input, string $message_input, string $name_inp
     //SMTP Settings
     $mail->isSMTP();
     // $mail->SMTPDebug = 3;  Keep It commented this is used for debugging
-    $mail->Host = "smtp.gmail.com"; // smtp address of your email
+    $mail->Host = "usm1.noc41.com"; // smtp address of your email
     $mail->SMTPAuth = true;
     $mail->Username = $from;
     $mail->Password = $password;
-    $mail->Port = 587;  // port
+    $mail->Port = 465;  // port
     $mail->SMTPSecure = "tls";  // tls or ssl
     $mail->smtpConnect([
         'ssl' => [

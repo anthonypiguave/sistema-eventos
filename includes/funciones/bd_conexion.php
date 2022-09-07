@@ -1,6 +1,6 @@
 <?php
     define('XENTURIONIT_HOST', 'xitacademy.xenturionit.com');
-    define('XENTURIONIT_DB_USUARIO', 'robregon_user');
+    define('XENTURIONIT_DB_USUARIO', 'robregon');
     define('XENTURIONIT_DB_PASSWORD', 'Pa$$w0rd.2022');
     define('XENTURIONIT_DB_DATABASE', 'robregon_xitacademy');
 

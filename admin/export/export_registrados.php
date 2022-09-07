@@ -9,7 +9,7 @@
 <body>
 
 <?php
-$conn = new mysqli('localhost', 'root', '', 'xenturionit_respaldo');
+$conn = new mysqli('localhost', 'root', '', 'robregon_xitacademy');
 
 if($conn->connect_error){
     echo $error->$conn->connect_error;
@@ -46,7 +46,7 @@ $registrados = $conn->query($sql);
     <th style="background: #D0CDCD;">Email</th>
     <th style="background: #D0CDCD;">Fecha Registro</th>
     <th style="background: #D0CDCD;">Articulos</th>
-    <th style="background: #D0CDCD;">Talleres</th>
+    <th style="background: #D0CDCD;">Eventos</th>
     <th style="background: #D0CDCD;">Regalo</th>
     <th style="background: #D0CDCD;">Total Pagado</th>
     <th style="background: #D0CDCD;">Pagado</th>

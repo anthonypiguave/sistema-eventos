@@ -247,7 +247,7 @@
             </ul>
         </div>
         <?php
-        $conn = new mysqli('localhost', 'root', '', 'xenturionit_respaldo');
+        $conn = new mysqli('localhost', 'root', '', 'robregon_xitacademy');
         if ($conn->connect_error) {
             echo $error->$conn->connect_error;
         }

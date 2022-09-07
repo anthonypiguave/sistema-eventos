@@ -79,7 +79,7 @@
                             <span>Mensaje</span>
                         </div>
                         <button class="btn btn-success" type="submit" name="sendmail">ENVIAR</button>
-                        <div style="padding-top: 20px" class="g-recaptcha" data-sitekey="6LerQR0gAAAAAJ2h2WIu7aHkLdvsAXB2RGqxsJ9t"></div>
+                        <div style="padding-top: 20px" class="g-recaptcha" data-sitekey="6LcrRtshAAAAAAA7KY-dxevLkayyezC-loo2GdNl"></div>
                     </form>
                 </div>
             </div>
